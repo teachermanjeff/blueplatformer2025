@@ -1,7 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dpu4hr15jx1mu"]
 
-[ext_resource type="Script" uid="uid://b1co785giihlw" path="res://player.gd" id="1_g5c48"]
 [ext_resource type="Texture2D" uid="uid://qt63cdr6ja43" path="res://icon.svg" id="1_g662q"]
+
+[sub_resource type="Resource" id="Resource_crmta"]
+metadata/__load_path__ = "res://player.gd"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g5c48"]
 size = Vector2(127, 126)
@@ -13,7 +15,7 @@ size = Vector2(1092, 117)
 
 [node name="player" type="CharacterBody2D" parent="."]
 position = Vector2(-5, -7)
-script = ExtResource("1_g5c48")
+script = SubResource("Resource_crmta")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="player"]
