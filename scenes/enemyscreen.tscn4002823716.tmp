@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://c27403rbgh4rg"]
+
+[ext_resource type="Texture2D" uid="uid://x2fbdlopyqiy" path="res://art/characters/Soldier_1/Idle.png" id="1_rw6h8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jwx65"]
+size = Vector2(54, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2o4fh"]
+atlas = ExtResource("1_rw6h8")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iiinl"]
+atlas = ExtResource("1_rw6h8")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckluo"]
+atlas = ExtResource("1_rw6h8")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oegxy"]
+atlas = ExtResource("1_rw6h8")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgs3w"]
+atlas = ExtResource("1_rw6h8")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dl1yq"]
+atlas = ExtResource("1_rw6h8")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nanqn"]
+atlas = ExtResource("1_rw6h8")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iiwj0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2o4fh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iiinl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckluo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oegxy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgs3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dl1yq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nanqn")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="enemyscreen" type="Node2D"]
+
+[node name="enemy" type="CharacterBody2D" parent="."]
+position = Vector2(847, 954)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy"]
+position = Vector2(-314, -562.5)
+shape = SubResource("RectangleShape2D_jwx65")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="enemy"]
+position = Vector2(-321, -590)
+sprite_frames = SubResource("SpriteFrames_iiwj0")
+animation = &"Idle"
+frame_progress = 0.33827
