@@ -21,3 +21,5 @@ position = Vector2(-320, -592)
 shape = SubResource("RectangleShape2D_jwx65")
 
 [node name="dmgarea" type="Area2D" parent="enemy"]
+
+[connection signal="body_entered" from="enemy/dmgarea" to="enemy" method="_on_dmgarea_body_entered"]
