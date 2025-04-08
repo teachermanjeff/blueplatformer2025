@@ -1,4 +1,7 @@
 extends Area2D
 
-func _physics_process(delta: float) -> void:
-	#velocty.x += 25*direction
+@export var speed := 500
+var direction := Vector2.RIGHT
+
+func _process(delta):
+	position += direction * speed * delta
