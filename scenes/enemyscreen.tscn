@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://wi3wuw2ftrxj"]
+[gd_scene load_steps=6 format=3 uid="uid://wi3wuw2ftrxj"]
 
 [ext_resource type="Script" uid="uid://cr3ytew8jm60" path="res://script/enemy.gd" id="1_2o4fh"]
 [ext_resource type="Texture2D" uid="uid://qt63cdr6ja43" path="res://icon.svg" id="1_ugnnv"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2o4fh"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jwx65"]
 size = Vector2(126, 132)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iiinl"]
 
 [node name="enemyscreen" type="Node2D"]
 
@@ -12,14 +16,24 @@ size = Vector2(126, 132)
 position = Vector2(847, 954)
 script = ExtResource("1_2o4fh")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy"]
+shape = SubResource("RectangleShape2D_2o4fh")
+
 [node name="Sprite2D" type="Sprite2D" parent="enemy"]
 position = Vector2(-318, -584)
 texture = ExtResource("1_ugnnv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy"]
+[node name="dmgarea" type="Area2D" parent="enemy"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy/dmgarea"]
 position = Vector2(-320, -592)
 shape = SubResource("RectangleShape2D_jwx65")
 
-[node name="dmgarea" type="Area2D" parent="enemy"]
+[node name="detection_area" type="Area2D" parent="enemy"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy/detection_area"]
+shape = SubResource("RectangleShape2D_iiinl")
 
 [connection signal="body_entered" from="enemy/dmgarea" to="enemy" method="_on_dmgarea_body_entered"]
+[connection signal="body_entered" from="enemy/detection_area" to="enemy" method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="enemy/detection_area" to="enemy" method="_on_detection_area_body_exited"]
