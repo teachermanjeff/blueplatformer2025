@@ -3,10 +3,11 @@ var movespeed = 100
 const gravity = 60
 var health = 3
 
-func _physics_process(delta: float) -> void:
-	velocity = movespeed
-	move_and_slide()
 
+func _ready():
+	pass
+	
 func _physics_process(delta: float) -> void:
-	velocity.y += gravity
+	velocity.x = movespeed
 	move_and_slide()
+	
