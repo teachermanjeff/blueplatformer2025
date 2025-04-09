@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cu8swwnv76erp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcboo"]
+size = Vector2(53, 20)
+
+[node name="Bumper" type="Node2D"]
+visibility_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visibility_layer = 4
+position = Vector2(162.5, 105)
+shape = SubResource("RectangleShape2D_vcboo")
+one_way_collision_margin = 4.6
