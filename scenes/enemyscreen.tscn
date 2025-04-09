@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://wi3wuw2ftrxj"]
+[gd_scene load_steps=4 format=3 uid="uid://wi3wuw2ftrxj"]
 
-[ext_resource type="Script" uid="uid://cr3ytew8jm60" path="res://script/enemy.gd" id="1_2o4fh"]
 [ext_resource type="Script" uid="uid://c7t8ig0tqtgcy" path="res://scenes/enemyscreen.gd" id="1_iiinl"]
 [ext_resource type="Texture2D" uid="uid://qt63cdr6ja43" path="res://icon.svg" id="1_ugnnv"]
 
@@ -10,16 +9,13 @@ size = Vector2(126, 132)
 [node name="enemyscreen" type="CharacterBody2D"]
 script = ExtResource("1_iiinl")
 
-[node name="enemy" type="CharacterBody2D" parent="."]
-position = Vector2(847, 954)
-script = ExtResource("1_2o4fh")
-
-[node name="Sprite2D" type="Sprite2D" parent="enemy"]
-position = Vector2(-318, -584)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(529, 370)
 texture = ExtResource("1_ugnnv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy"]
-position = Vector2(-320, -592)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(527, 362)
 shape = SubResource("RectangleShape2D_jwx65")
 
-[node name="dmgarea" type="Area2D" parent="enemy"]
+[node name="dmgarea" type="Area2D" parent="."]
+position = Vector2(847, 954)
