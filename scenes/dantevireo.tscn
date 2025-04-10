@@ -13,8 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://cbpwn3mm7r4mw" path="res://art/characters/dantevireo/Shot.png" id="9_kdkle"]
 [ext_resource type="Texture2D" uid="uid://b7322mlth2evu" path="res://art/characters/dantevireo/Walk.png" id="10_ououa"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5nv0c"]
-size = Vector2(579, 100)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_di3h4"]
+radius = 22.0
+height = 74.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kqknl"]
 atlas = ExtResource("1_tsmr2")
@@ -643,13 +644,13 @@ BulletScene = ExtResource("2_di3h4")
 ammo_label = NodePath("Label")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(28.5, 740)
-shape = SubResource("RectangleShape2D_5nv0c")
+position = Vector2(-10, 12)
+shape = SubResource("CapsuleShape2D_di3h4")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -2)
+position = Vector2(-2, -19)
 sprite_frames = SubResource("SpriteFrames_h4bv2")
 animation = &"run"
 frame = 8
