@@ -1,7 +1,7 @@
 extends CharacterBody2D
 var movespeed = 50
 const gravity = 60
-
+@export var anim: AnimatedSprite2D
 
 
 func _ready():
@@ -9,8 +9,10 @@ func _ready():
 	
 func _physics_process(delta: float) -> void:
 	velocity.x = movespeed
+	$Sprite2D.play("default")
 	move_and_slide()
-	
+
+
 	if is_on_wall():
 		movespeed = -movespeed
 		
@@ -23,6 +25,11 @@ func _physics_process(delta: float) -> void:
 	
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
-	get_tree().get_node()
-	health = health - 1
-pass # Replace with function body.
+	get_parent().get_node("HUD").health -= 1
+	get_parent().get_node("player").position.x -= 50
+	
+
+
+func _on_hurt_area_entered(area: Area2D) -> void:
+	queue_free()
+	pass # Replace with function body.
