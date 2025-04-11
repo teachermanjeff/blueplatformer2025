@@ -1296,7 +1296,7 @@ position = Vector2(-7.01684, -3.50842)
 offset = Vector2(0, 115.11)
 zoom = Vector2(2, 2)
 
-<<<<<<< HEAD
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="CanvasLayer"]
@@ -1304,14 +1304,13 @@ offset_left = 263.0
 offset_top = 563.0
 offset_right = 303.0
 offset_bottom = 614.0
-=======
 [node name="Label" type="Label" parent="player"]
 offset_left = 152.616
 offset_top = -159.633
 offset_right = 229.546
 offset_bottom = -118.633
 rotation = -0.0272045
->>>>>>> 5abc79f0880313bea11a8156200215ebc12781ff
+
 theme_override_fonts/font = ExtResource("14_0mttw")
 theme_override_font_sizes/font_size = 40
 metadata/_edit_use_anchors_ = true
