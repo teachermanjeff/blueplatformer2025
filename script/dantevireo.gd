@@ -1,5 +1,5 @@
 extends CharacterBody2D
-var health
+
 const MOVE_SPEED = 100
 const GRAVITY = 980
 const JUMP_SPEED = -400
