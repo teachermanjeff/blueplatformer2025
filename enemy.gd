@@ -36,4 +36,6 @@ func take_damage(amount):
 
 # Function to handle enemy death
 func die():
+	$AnimatedSprite2D.play("die")
+	print("hello")
 	queue_free()  # Remove the enemy from the scene

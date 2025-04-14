@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var shoot_range: float = 300.0
 @export var shoot_delay: float = 1.0
 @export var gun_marker: Marker2D
-@export var bullet_scene: PackedScene = preload("res://bullet.tscn")
+@export var bullet_scene: PackedScene = preload("res://scenes/bullet.tscn")
 @export var timer: Timer
 
 var is_player_nearby = false
