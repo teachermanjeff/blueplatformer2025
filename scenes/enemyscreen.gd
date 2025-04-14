@@ -5,14 +5,19 @@ const gravity = 60
 var player = null
 var player_chase = false
 var speed = 25
+var dead = false
 
 func _ready():
 	pass
 	
 func _physics_process(delta: float) -> void:
-	if player_chase:
-		position += (player.position - position)/speed
-	velocity.x = movespeed
+	if player_chase == true:
+			#velocity.x = moves dpeed
+		if player.position.x > position.x:
+			velocity.x += 5
+		if player.position.x < position.x:
+			velocity.x -= 5
+	
 	$Sprite2D.play("default")
 	move_and_slide()
 
@@ -29,18 +34,23 @@ func _physics_process(delta: float) -> void:
 	
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
-	get_parent().get_node("HUD").health -= 1
-	get_parent().get_node("player").position.x -= 50
+	if dead == false: 
+		get_parent().get_node("HUD").health -= 1
+		get_parent().get_node("player").position.x -= 50
 	
 
 
 func _on_hurt_area_entered(area: Area2D) -> void:
-	area.queue_free()
-	queue_free()
+	$Sprite2D.play("dead")
+	dead = true
+	
+	#area.queue_free()
+	#queue_free()
 	pass # Replace with function body.
 
 
 func _on_detectionzone_body_entered(body: Node2D) -> void:
-	player = body
-	player_chase = true
+	if dead == false:
+		player = body
+		player_chase = true
 	pass # Replace with function body.

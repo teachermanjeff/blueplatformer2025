@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="blue platformer"
-run/main_scene="uid://c27403rbgh4rg"
+run/main_scene="uid://dc4ntpy28kojh"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
