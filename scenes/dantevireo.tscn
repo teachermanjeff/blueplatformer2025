@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b7322mlth2evu" path="res://art/characters/dantevireo/Walk.png" id="10_ououa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_12duq"]
-size = Vector2(31.5, 70)
+size = Vector2(28.5, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kqknl"]
 atlas = ExtResource("1_tsmr2")
@@ -639,7 +639,7 @@ animations = [{
 script = ExtResource("1_5nv0c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3.75, 29)
+position = Vector2(-5.25, 29)
 shape = SubResource("RectangleShape2D_12duq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
