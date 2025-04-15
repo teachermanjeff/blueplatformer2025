@@ -1,237 +1,29 @@
-[gd_scene load_steps=32 format=3 uid="uid://dc4ntpy28kojh"]
+[gd_scene load_steps=4 format=3 uid="uid://dc4ntpy28kojh"]
 
-[ext_resource type="Texture2D" uid="uid://cvienohk006fg" path="res://art/craftpix-net-314143-free-industrial-zone-tileset-pixel-art/2 Background/Background.png" id="1_ldvoq"]
-[ext_resource type="Texture2D" uid="uid://baythh0atspxc" path="res://art/characters/dantevireo/Idle_2.png" id="2_ws5vn"]
-[ext_resource type="Texture2D" uid="uid://co3mbr74wjo66" path="res://art/characters/Gangsters_3/Idle_2.png" id="3_ebkny"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_8llns"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6wsxa"]
-atlas = ExtResource("2_ws5vn")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_drsnf"]
-atlas = ExtResource("2_ws5vn")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pvse7"]
-atlas = ExtResource("2_ws5vn")
-region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vh686"]
-atlas = ExtResource("2_ws5vn")
-region = Rect2(384, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nd6x2"]
-atlas = ExtResource("2_ws5vn")
-region = Rect2(512, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c4sg0"]
-atlas = ExtResource("2_ws5vn")
-region = Rect2(640, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fevky"]
-atlas = ExtResource("2_ws5vn")
-region = Rect2(768, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bakud"]
-atlas = ExtResource("2_ws5vn")
-region = Rect2(896, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pq1xb"]
-atlas = ExtResource("2_ws5vn")
-region = Rect2(1024, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_576uk"]
-atlas = ExtResource("2_ws5vn")
-region = Rect2(1152, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1cb17"]
-atlas = ExtResource("2_ws5vn")
-region = Rect2(1280, 0, 128, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_avki2"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6wsxa")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_drsnf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pvse7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vh686")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nd6x2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c4sg0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fevky")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bakud")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pq1xb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_576uk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1cb17")
-}],
-"loop": true,
-"name": &"STARTERSCREENIDLE",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_64i13"]
-atlas = ExtResource("3_ebkny")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_saawq"]
-atlas = ExtResource("3_ebkny")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jxa2f"]
-atlas = ExtResource("3_ebkny")
-region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c30uu"]
-atlas = ExtResource("3_ebkny")
-region = Rect2(384, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gdj8j"]
-atlas = ExtResource("3_ebkny")
-region = Rect2(512, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_aknuj"]
-atlas = ExtResource("3_ebkny")
-region = Rect2(640, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5d7f6"]
-atlas = ExtResource("3_ebkny")
-region = Rect2(768, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q08bd"]
-atlas = ExtResource("3_ebkny")
-region = Rect2(896, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3xees"]
-atlas = ExtResource("3_ebkny")
-region = Rect2(1024, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r7pnc"]
-atlas = ExtResource("3_ebkny")
-region = Rect2(1152, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6i73p"]
-atlas = ExtResource("3_ebkny")
-region = Rect2(1280, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_11msq"]
-atlas = ExtResource("3_ebkny")
-region = Rect2(1408, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vnm68"]
-atlas = ExtResource("3_ebkny")
-region = Rect2(1536, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yymw3"]
-atlas = ExtResource("3_ebkny")
-region = Rect2(1664, 0, 128, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ttbho"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_64i13")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_saawq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jxa2f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c30uu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gdj8j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_aknuj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5d7f6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q08bd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3xees")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r7pnc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6i73p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_11msq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vnm68")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yymw3")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="Script" uid="uid://ca4ladlkusob" path="res://scenes/starter_screen.gd" id="1_ij4ak"]
+[ext_resource type="Texture2D" uid="uid://drefala0v4eru" path="res://scenes/starterscreenportrait.png" id="2_ij4ak"]
+[ext_resource type="FontFile" uid="uid://b4drnp76yyyc2" path="res://ARCADECLASSIC.TTF" id="3_ldvoq"]
 
 [node name="Starter screen" type="Node2D"]
+position = Vector2(29, -213)
+scale = Vector2(1.05631, 1.05631)
+script = ExtResource("1_ij4ak")
 
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(744, 346)
-scale = Vector2(4.02778, 4.02778)
-texture = ExtResource("1_ldvoq")
-
-[node name="Label" type="Label" parent="."]
-offset_left = 21.0
-offset_top = 16.0
-offset_right = 219.0
-offset_bottom = 39.0
-scale = Vector2(2.66359, 6.54517)
-text = "GANGSTER VS SOLIDERS"
-label_settings = SubResource("LabelSettings_8llns")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(75, 731)
-scale = Vector2(3.13791, 3.13791)
-sprite_frames = SubResource("SpriteFrames_avki2")
-animation = &"STARTERSCREENIDLE"
-frame_progress = 0.745771
-
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
-position = Vector2(450, 726)
-scale = Vector2(3.13791, 3.13791)
-sprite_frames = SubResource("SpriteFrames_ttbho")
-frame_progress = 0.688906
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(281.166, 662.682)
+scale = Vector2(0.593579, 0.593579)
+texture = ExtResource("2_ij4ak")
 
 [node name="start" type="Button" parent="."]
-offset_left = -234.0
-offset_top = 416.0
-offset_right = 758.0
-offset_bottom = 874.0
+offset_left = 204.485
+offset_top = 799.005
+offset_right = 352.485
+offset_bottom = 926.005
+scale = Vector2(1, 0.68757)
 pivot_offset = Vector2(883, 338)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_ldvoq")
+theme_override_font_sizes/font_size = 42
 text = "START"
+
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]

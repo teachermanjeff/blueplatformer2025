@@ -1,5 +1,5 @@
 extends CharacterBody2D
-var health
+
 const MOVE_SPEED = 100
 const GRAVITY = 980
 const JUMP_SPEED = -400
@@ -12,7 +12,7 @@ var current_dir = "right"  # direction the character is facing
 
 var shots_left := 10
 const MAX_SHOTS := 10
-const RELOAD_TIME := 5.0
+const RELOAD_TIME := 2.5
 var reloading := false
 
 func _ready():
@@ -25,36 +25,41 @@ func _physics_process(delta):
 
 	var movement = 0  # 0 = idle, 1 = moving
 
-	# Handle horizontal movement
-	if Input.is_action_pressed("move_left"):
-		current_dir = "left"
-		velocity.x = -MOVE_SPEED
-		movement = 1
-	elif Input.is_action_pressed("move_right"):
-		current_dir = "right"
-		velocity.x = MOVE_SPEED
-		movement = 1
-	else:
+	# Prevent movement if reloading
+	if reloading:
 		velocity.x = 0
+		movement = 0
+	else:
+		# Handle horizontal movement
+		if Input.is_action_pressed("move_left"):
+			current_dir = "left"
+			velocity.x = -MOVE_SPEED
+			movement = 1
+		elif Input.is_action_pressed("move_right"):
+			current_dir = "right"
+			velocity.x = MOVE_SPEED
+			movement = 1
+		else:
+			velocity.x = 0
 
 	# Handle jump
-	if Input.is_action_just_pressed("Jump") and is_on_floor():
+	if Input.is_action_just_pressed("Jump") and is_on_floor() and !reloading:
 		velocity.y = JUMP_SPEED
 
 	# Handle shooting
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_just_pressed("shoot") and !reloading:
 		shoot()
 
 	# Check if the player presses "R" to reload
-	if Input.is_action_just_pressed("reload"):
-		if !reloading and shots_left < MAX_SHOTS:
-			start_reload()
+	if Input.is_action_just_pressed("reload") and !reloading and shots_left < MAX_SHOTS:
+		start_reload()
 
 	# Play animation based on movement and direction
 	play_anim(movement)
 
 	# Move the character
 	move_and_slide()
+
 
 func play_anim(movement):
 	var anim = $AnimatedSprite2D
