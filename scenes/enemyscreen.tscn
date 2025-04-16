@@ -63,7 +63,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fqqn3")
 }],
-"loop": true,
+"loop": false,
 "name": &"dead",
 "speed": 1.0
 }, {
@@ -98,13 +98,13 @@ animations = [{
 size = Vector2(31, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2o4fh"]
-size = Vector2(33, 46)
+size = Vector2(34, 47)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_305g5"]
 size = Vector2(31, 46.125)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iiinl"]
-radius = 64.2806
+radius = 1199.0
 
 [node name="enemyscreen" type="CharacterBody2D"]
 collision_layer = 4
@@ -115,7 +115,6 @@ script = ExtResource("1_iiinl")
 position = Vector2(0, -20)
 scale = Vector2(0.890625, 0.6875)
 sprite_frames = SubResource("SpriteFrames_e2rbn")
-animation = &"dead"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)
@@ -125,7 +124,7 @@ shape = SubResource("RectangleShape2D_jwx65")
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(0.5, 0)
+position = Vector2(1, -0.5)
 shape = SubResource("RectangleShape2D_2o4fh")
 
 [node name="hurt" type="Area2D" parent="."]
