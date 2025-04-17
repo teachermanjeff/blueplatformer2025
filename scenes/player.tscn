@@ -645,6 +645,7 @@ size = Vector2(200, 200)
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("ammo_label")]
 position = Vector2(186, 681)
 scale = Vector2(0.570057, 0.570057)
+collision_mask = 16
 script = ExtResource("1_f1ej7")
 BulletScene = ExtResource("2_oprun")
 ammo_label = NodePath("Label")

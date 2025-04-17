@@ -104,11 +104,11 @@ size = Vector2(34, 47)
 size = Vector2(31, 46.125)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iiinl"]
-radius = 1199.0
+radius = 178.07
 
 [node name="enemyscreen" type="CharacterBody2D"]
-collision_layer = 4
-collision_mask = 9
+collision_layer = 8
+collision_mask = 7
 script = ExtResource("1_iiinl")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
@@ -128,16 +128,18 @@ position = Vector2(1, -0.5)
 shape = SubResource("RectangleShape2D_2o4fh")
 
 [node name="hurt" type="Area2D" parent="."]
-collision_layer = 16
-collision_mask = 16
+collision_layer = 8
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurt"]
 position = Vector2(0.5, -0.0625)
 shape = SubResource("RectangleShape2D_305g5")
 
 [node name="detectionzone" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detectionzone"]
+position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_iiinl")
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

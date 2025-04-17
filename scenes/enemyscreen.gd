@@ -1,7 +1,7 @@
 extends CharacterBody2D
 var movespeed = 50
 const gravity = 60
-@export var anim: AnimatedSprite2D
+#@export var anim: AnimatedSprite2D
 var player = null
 var player_chase = false
 var speed = 25
@@ -12,11 +12,11 @@ func _ready():
 	
 func _physics_process(delta: float) -> void:
 	if player_chase:
-		velocity.x = movespeed
+		#velocity.x = movespeed
 		if player.position.x > position.x:
-			velocity.x += 10
+			velocity.x += 2
 		if player.position.x < position.x:
-			velocity.x -= 10
+			velocity.x -= 2
 	
 	$Sprite2D.play("default")
 	move_and_slide()
@@ -43,14 +43,16 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 func _on_hurt_area_entered(area: Area2D) -> void:
 	$Sprite2D.play("dead")
 	var dead = true
-	
-	#area.queue_free()
+	print("you dead")
+	area.queue_free()
 	queue_free()
-	pass # Replace with function body.
+	
 
 
 func _on_detectionzone_body_entered(body: Node2D) -> void:
-	#if dead == false:
-	player = body
-	var player_chase = true
+	print("entered")
+	if dead == false:
+		print("entered2")
+		player = body
+		player_chase = true
 	pass # Replace with function body.
