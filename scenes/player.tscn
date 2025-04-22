@@ -652,6 +652,7 @@ ammo_label = NodePath("Label")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pf23h")
 animation = &"idle1"
+speed_scale = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.75424, 29.8216)
