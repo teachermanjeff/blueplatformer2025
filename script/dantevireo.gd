@@ -90,9 +90,9 @@ func shoot():
 	bullet.global_position = gun_muzzle.global_position
 
 	if current_dir == "right":
-		bullet.direction = Vector2.RIGHT
+		bullet.direction = 1
 	else:
-		bullet.direction = Vector2.LEFT
+		bullet.direction = -1
 
 	get_tree().current_scene.add_child(bullet)
 

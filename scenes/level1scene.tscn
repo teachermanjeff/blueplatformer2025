@@ -1255,7 +1255,8 @@ texture = ExtResource("15_ect3f")
 1:127/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_p443i"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 16
+physics_layer_0/collision_mask = 17
 sources/0 = SubResource("TileSetAtlasSource_pclww")
 
 [node name="level1Scene" type="Node2D"]
@@ -1277,6 +1278,8 @@ texture = ExtResource("1_rgst3")
 [node name="player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("ammo_label")]
 position = Vector2(186, 681)
 scale = Vector2(0.570057, 0.570057)
+collision_layer = 17
+collision_mask = 16
 script = ExtResource("2_qswr5")
 BulletScene = ExtResource("3_hjpuj")
 ammo_label = NodePath("Label")
