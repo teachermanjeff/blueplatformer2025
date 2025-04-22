@@ -3,7 +3,7 @@ extends CharacterBody2D
 const MOVE_SPEED = 100
 const GRAVITY = 980
 const JUMP_SPEED = -400
-var knockback = null
+var knockback = false
 var current_dir = "right"  # direction the character is facing
 
 @export var BulletScene: PackedScene  # Drag & drop Bullet.tscn in the inspector
@@ -21,8 +21,6 @@ func _ready():
 
 func _physics_process(delta):
 	# Apply gravity
-	if knockback == true:
-		CharacterBody2D.global_position.x -= 50
 	velocity.y += GRAVITY * delta
 
 	var movement = 0  # 0 = idle, 1 = moving
