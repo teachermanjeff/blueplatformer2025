@@ -18,12 +18,15 @@ func _physics_process(delta: float) -> void:
 
 	if player_chase:
 		#velocity.x = movespeed
-		if player.position.x > position.x:
+		if player.global_position.x > global_position.x:
 			velocity.x += 2
-		if player.position.x < position.x:
+			current_dir = "right"
+			$Sprite2D.flip_h = false
+		if player.global_position.x < global_position.x:
+			current_dir = "left"
 			velocity.x -= 2
+			$Sprite2D.flip_h = true
 			
-		#var Bullet = bullet.instantiate()
 		if shoot == true:
 			var new_bullet = bullet.instantiate()
 			new_bullet.global_position = gun_muzzle.global_position
@@ -44,13 +47,6 @@ func _physics_process(delta: float) -> void:
 	if is_on_wall():
 		movespeed = -movespeed
 		
-		
-	if movespeed > 0:
-		$Sprite2D.flip_h = false
-	else: 
-		$Sprite2D.flip_h = true
-	
-	
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if dead == false: 

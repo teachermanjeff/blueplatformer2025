@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=3 uid="uid://cm388cvg5gs45"]
+[gd_scene load_steps=100 format=3 uid="uid://cm388cvg5gs45"]
 
 [ext_resource type="Script" uid="uid://dc2caq7f72stj" path="res://script/dantevireo.gd" id="1_f1ej7"]
 [ext_resource type="PackedScene" uid="uid://b4eepx6jx7r6t" path="res://bullet.tscn" id="2_oprun"]
@@ -642,6 +642,10 @@ height = 66.6599
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wqfne"]
 size = Vector2(200, 200)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f1ej7"]
+radius = 24.5589
+height = 70.1685
+
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("ammo_label")]
 position = Vector2(186, 681)
 scale = Vector2(0.570057, 0.570057)
@@ -685,3 +689,12 @@ position = Vector2(96, 664)
 texture_normal = ExtResource("14_31cv2")
 shape = SubResource("RectangleShape2D_wqfne")
 action = "move_left"
+
+[node name="hurtzone" type="Area2D" parent="."]
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtzone"]
+position = Vector2(-1.75421, 29.8216)
+shape = SubResource("CapsuleShape2D_f1ej7")
+
+[connection signal="area_entered" from="hurtzone" to="." method="_on_hurtzone_area_entered"]

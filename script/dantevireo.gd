@@ -3,7 +3,7 @@ extends CharacterBody2D
 const MOVE_SPEED = 100
 const GRAVITY = 980
 const JUMP_SPEED = -400
-
+var knockback = null
 var current_dir = "right"  # direction the character is facing
 
 @export var BulletScene: PackedScene  # Drag & drop Bullet.tscn in the inspector
@@ -21,6 +21,8 @@ func _ready():
 
 func _physics_process(delta):
 	# Apply gravity
+	if knockback == true:
+		CharacterBody2D.global_position.x -= 50
 	velocity.y += GRAVITY * delta
 
 	var movement = 0  # 0 = idle, 1 = moving
@@ -135,3 +137,10 @@ func start_reload():
 # Function to update the ammo counter on screen
 func update_ammo_label():
 	ammo_label.text = "Ammo: " + str(shots_left) + "/" + str(MAX_SHOTS)
+
+
+func _on_hurtzone_area_entered(area: Area2D) -> void:
+	print("i am shot")
+	get_parent().get_node("HUD").health -= 1
+	knockback = true
+	pass # Replace with function body.
