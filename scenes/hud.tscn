@@ -8,4 +8,13 @@ script = ExtResource("1_ahhtf")
 [node name="health" type="Label" parent="."]
 offset_right = 86.0
 offset_bottom = 44.0
+theme_override_font_sizes/font_size = 70
 text = "Health:"
+
+[node name="ammo" type="Label" parent="."]
+offset_left = 561.0
+offset_top = -11.0
+offset_right = 907.0
+offset_bottom = 126.0
+theme_override_font_sizes/font_size = 60
+text = "Ammo:"

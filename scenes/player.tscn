@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=3 uid="uid://cm388cvg5gs45"]
+[gd_scene load_steps=99 format=3 uid="uid://cm388cvg5gs45"]
 
 [ext_resource type="Script" uid="uid://dc2caq7f72stj" path="res://script/dantevireo.gd" id="1_f1ej7"]
 [ext_resource type="PackedScene" uid="uid://b4eepx6jx7r6t" path="res://bullet.tscn" id="2_oprun"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://cdnnayua41ltw" path="res://art/characters/dantevireo/Run.png" id="10_4ni07"]
 [ext_resource type="Texture2D" uid="uid://cbpwn3mm7r4mw" path="res://art/characters/dantevireo/Shot.png" id="11_l71n6"]
 [ext_resource type="Texture2D" uid="uid://b7322mlth2evu" path="res://art/characters/dantevireo/Walk.png" id="12_ke2ow"]
-[ext_resource type="FontFile" uid="uid://b4drnp76yyyc2" path="res://ARCADECLASSIC.TTF" id="13_ujl30"]
 [ext_resource type="Texture2D" uid="uid://qt63cdr6ja43" path="res://icon.svg" id="14_31cv2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kqknl"]
@@ -652,7 +651,7 @@ scale = Vector2(0.570057, 0.570057)
 collision_mask = 48
 script = ExtResource("1_f1ej7")
 BulletScene = ExtResource("2_oprun")
-ammo_label = NodePath("Label")
+ammo_label = NodePath("")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pf23h")
@@ -670,16 +669,6 @@ position = Vector2(-7.01684, -3.50842)
 scale = Vector2(23.416, 1.07284)
 offset = Vector2(0, 115.11)
 zoom = Vector2(2, 2)
-
-[node name="Label" type="Label" parent="."]
-offset_left = 152.616
-offset_top = -159.633
-offset_right = 229.546
-offset_bottom = -118.633
-rotation = -0.0272045
-theme_override_fonts/font = ExtResource("13_ujl30")
-theme_override_font_sizes/font_size = 40
-metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
