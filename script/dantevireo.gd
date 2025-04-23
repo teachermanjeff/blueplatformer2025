@@ -3,7 +3,8 @@ extends CharacterBody2D
 const MOVE_SPEED = 100
 const GRAVITY = 2200
 const JUMP_SPEED = -400
-var knockback = null
+
+var knockback = false
 var current_dir = "right"  # direction the character is facing
 
 @export var BulletScene: PackedScene  # Drag & drop Bullet.tscn in the inspector
@@ -16,14 +17,20 @@ const RELOAD_TIME := 2.5
 var reloading := false
 
 func _ready():
+	
 	# Update the label with the initial ammo count
 	update_ammo_label()
-
+	
 func _physics_process(delta):
 	# Apply gravity
-	if knockback == true:
-		CharacterBody2D.global_position.x -= 50
 	velocity.y += GRAVITY * delta
+	if knockback == true:
+		if get_parent().get_node("enemyscreen").player.global_position.x > global_position.x:
+			$AnimatedSprite2D.global_position.x += 50
+			knockback = false
+		if get_parent().get_node("enemyscreen").player.global_position.x < global_position.x:
+			$AnimatedSprite2D.global_position.x -= 50
+			knockback = false
 
 	var movement = 0  # 0 = idle, 1 = moving
 
