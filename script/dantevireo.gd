@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const MOVE_SPEED = 100
-const GRAVITY = 980
+const GRAVITY = 2200
 const JUMP_SPEED = -400
 var knockback = null
 var current_dir = "right"  # direction the character is facing
