@@ -662,21 +662,14 @@ shape = SubResource("CapsuleShape2D_dt7fs")
 [node name="GunMuzzle" type="Marker2D" parent="."]
 position = Vector2(22, 25)
 
+
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-7.01684, -3.50842)
 scale = Vector2(23.416, 1.07284)
 offset = Vector2(0, 115.11)
 zoom = Vector2(2, 2)
 
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="leftmove" type="TouchScreenButton" parent="CanvasLayer"]
-modulate = Color(1, 1, 1, 0.396078)
-position = Vector2(96, 664)
-texture_normal = ExtResource("14_31cv2")
-shape = SubResource("RectangleShape2D_wqfne")
-action = "move_left"
 
 [node name="Label" type="Label" parent="."]
 offset_left = 152.616
@@ -689,11 +682,21 @@ theme_override_font_sizes/font_size = 40
 metadata/_edit_use_anchors_ = true
 
 
-[node name="hurtzone" type="Area2D" parent="."]
-collision_mask = 32
+[node name="leftmove" type="TouchScreenButton" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.396078)
+position = Vector2(96, 664)
+texture_normal = ExtResource("14_31cv2")
+shape = SubResource("RectangleShape2D_wqfne")
+action = "move_left"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtzone"]
-position = Vector2(-1.75421, 29.8216)
-shape = SubResource("CapsuleShape2D_f1ej7")
-
-[connection signal="area_entered" from="hurtzone" to="." method="_on_hurtzone_area_entered"]
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-7.01684, -3.50842)
+scale = Vector2(23.416, 1.07284)
+offset = Vector2(0, 115.11)
+zoom = Vector2(3.5, 3.5)
+limit_left = 0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.25
+drag_right_margin = 0.1
