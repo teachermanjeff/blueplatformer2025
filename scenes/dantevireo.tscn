@@ -644,6 +644,5 @@ shape = SubResource("RectangleShape2D_12duq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_h4bv2")
-animation = &"run"
-frame = 8
-frame_progress = 0.02585
+animation = &"jump"
+frame_progress = 0.534602

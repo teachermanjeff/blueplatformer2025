@@ -1,5 +1,4 @@
 [gd_scene load_steps=99 format=3 uid="uid://cm388cvg5gs45"]
-
 [ext_resource type="Script" uid="uid://dc2caq7f72stj" path="res://script/dantevireo.gd" id="1_f1ej7"]
 [ext_resource type="PackedScene" uid="uid://b4eepx6jx7r6t" path="res://bullet.tscn" id="2_oprun"]
 [ext_resource type="Texture2D" uid="uid://bqg1f0ti33ry8" path="res://art/characters/dantevireo/Dead.png" id="3_a8ls1"]
@@ -13,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cbpwn3mm7r4mw" path="res://art/characters/dantevireo/Shot.png" id="11_l71n6"]
 [ext_resource type="Texture2D" uid="uid://b7322mlth2evu" path="res://art/characters/dantevireo/Walk.png" id="12_ke2ow"]
 [ext_resource type="Texture2D" uid="uid://qt63cdr6ja43" path="res://icon.svg" id="14_31cv2"]
+[ext_resource type="FontFile" uid="uid://b4drnp76yyyc2" path="res://ARCADECLASSIC.TTF" id="13_ujl30"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kqknl"]
 atlas = ExtResource("3_a8ls1")
@@ -474,7 +474,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -638,9 +638,6 @@ animations = [{
 radius = 22.8047
 height = 66.6599
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqfne"]
-size = Vector2(200, 200)
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f1ej7"]
 radius = 24.5589
 height = 70.1685
@@ -655,7 +652,8 @@ ammo_label = NodePath("")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pf23h")
-animation = &"idle1"
+animation = &"jump"
+speed_scale = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.75424, 29.8216)
@@ -670,6 +668,7 @@ scale = Vector2(23.416, 1.07284)
 offset = Vector2(0, 115.11)
 zoom = Vector2(2, 2)
 
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="leftmove" type="TouchScreenButton" parent="CanvasLayer"]
@@ -678,6 +677,17 @@ position = Vector2(96, 664)
 texture_normal = ExtResource("14_31cv2")
 shape = SubResource("RectangleShape2D_wqfne")
 action = "move_left"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 152.616
+offset_top = -159.633
+offset_right = 229.546
+offset_bottom = -118.633
+rotation = -0.0272045
+theme_override_fonts/font = ExtResource("13_ujl30")
+theme_override_font_sizes/font_size = 40
+metadata/_edit_use_anchors_ = true
+
 
 [node name="hurtzone" type="Area2D" parent="."]
 collision_mask = 32
