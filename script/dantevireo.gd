@@ -6,8 +6,8 @@ const JUMP_SPEED = -600
 
 var knockback = false
 var current_dir = "right"  # direction the character is facing
-
-@export var BulletScene: PackedScene  # Drag & drop Bullet.tscn in the inspector
+var BulletScene = preload("res://bullet.tscn")
+#@export var BulletScene: PackedScene  # Drag & drop Bullet.tscn in the inspector
 @onready var gun_muzzle = $GunMuzzle  # Make sure you added a Marker2D called "GunMuzzle"
 @export var ammo_label: Label    # Reference to the Label node inside CanvasLayer
 
