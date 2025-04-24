@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://cu351ge424nrk"]
+[gd_scene load_steps=96 format=3 uid="uid://cu351ge424nrk"]
 
 [ext_resource type="Script" uid="uid://dc2caq7f72stj" path="res://script/dantevireo.gd" id="1_5nv0c"]
 [ext_resource type="Texture2D" uid="uid://bqg1f0ti33ry8" path="res://art/characters/dantevireo/Dead.png" id="1_tsmr2"]
@@ -12,8 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://cbpwn3mm7r4mw" path="res://art/characters/dantevireo/Shot.png" id="9_kdkle"]
 [ext_resource type="Texture2D" uid="uid://b7322mlth2evu" path="res://art/characters/dantevireo/Walk.png" id="10_ououa"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_12duq"]
-size = Vector2(28.5, 70)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5nv0c"]
+radius = 13.5
+height = 59.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kqknl"]
 atlas = ExtResource("1_tsmr2")
@@ -635,14 +636,32 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_di3h4"]
+radius = 14.0
+height = 62.0
+
 [node name="dantevireo" type="CharacterBody2D"]
 script = ExtResource("1_5nv0c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-5.25, 29)
-shape = SubResource("RectangleShape2D_12duq")
+position = Vector2(-2.5, 35.5)
+shape = SubResource("CapsuleShape2D_5nv0c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, 12)
+scale = Vector2(0.90625, 0.8125)
 sprite_frames = SubResource("SpriteFrames_h4bv2")
 animation = &"jump"
 frame_progress = 0.534602
+
+[node name="GunMuzzle" type="Marker2D" parent="."]
+position = Vector2(-2, 31)
+
+[node name="hurtzone" type="Area2D" parent="."]
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtzone"]
+position = Vector2(-2, 35)
+shape = SubResource("CapsuleShape2D_di3h4")
+
+[connection signal="area_entered" from="hurtzone" to="." method="_on_hurtzone_area_entered"]
