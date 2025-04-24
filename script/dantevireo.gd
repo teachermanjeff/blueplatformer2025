@@ -11,17 +11,19 @@ var current_dir = "right"  # direction the character is facing
 @onready var gun_muzzle = $GunMuzzle  # Make sure you added a Marker2D called "GunMuzzle"
 @export var ammo_label: Label    # Reference to the Label node inside CanvasLayer
 
-var shots_left := 10
+var shots_left = 9
 const MAX_SHOTS := 10
 const RELOAD_TIME := 2.5
 var reloading := false
 
-func _ready():
+#func _ready():
 	
 	# Update the label with the initial ammo count
-	update_ammo_label()
+	###update_ammo_label()
 	
 func _physics_process(delta):
+
+		
 	# Apply gravity
 	velocity.y += GRAVITY * delta
 	if knockback == true:
@@ -60,7 +62,7 @@ func _physics_process(delta):
 		shoot()
 
 	# Check if the player presses "R" to reload
-	if Input.is_action_just_pressed("reload") and !reloading and shots_left < MAX_SHOTS:
+	if Input.is_action_just_pressed("reload") and !reloading and shots_left < 10:
 		start_reload()
 
 	# Play animation based on movement and direction
@@ -106,34 +108,38 @@ func shoot():
 	get_tree().current_scene.add_child(bullet)
 
 	# Reduce shots left
-	shots_left -= 1
+	get_parent().get_node("HUD").ammo -= 1
+	#shots_left -= 1
 
 	# Update ammo label
-	update_ammo_label()
+	#update_ammo_label()
 
 	# Start reload if out of ammo
-	if shots_left == 0:
+	if get_parent().get_node("HUD").ammo == 0:
 		start_reload()
 
 func start_reload():
+
 	reloading = true
 	print("Reloading...")
 
 	# Set the ammo label to "Reloading" while reloading
-	ammo_label.text = "Reloading..."
+	get_parent().get_node("HUD").ammo_reload = true
+	###ammo_label.text = "Reloading..."
 
 	# Start the reload animation here
 	$AnimatedSprite2D.play("reload")
 
 	# Wait for the reload to finish (this could be done with a timer or async)
 	await get_tree().create_timer(RELOAD_TIME).timeout
-	
-	shots_left = MAX_SHOTS
+	get_parent().get_node("HUD").ammo = 10
+	####shots_left = MAX_SHOTS
 	reloading = false
+	get_parent().get_node("HUD").ammo_reload = false
 	print("Reload complete!")
 
 	# Update ammo label to reflect the remaining ammo after reloading
-	update_ammo_label()
+	###update_ammo_label()
 
 	# After reloading, return to idle or walk animation
 	if velocity.x == 0:
