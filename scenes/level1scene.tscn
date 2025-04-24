@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dxqauqbf5j022"]
 
 [ext_resource type="PackedScene" uid="uid://n1tvq8pb07uk" path="res://scenes/hud.tscn" id="1_jj8qu"]
-[ext_resource type="Texture2D" uid="uid://cvienohk006fg" path="res://art/craftpix-net-314143-free-industrial-zone-tileset-pixel-art/2 Background/Background.png" id="1_rgst3"]
+[ext_resource type="Texture2D" uid="uid://cvienohk006fg" path="res://art/unusedtileset/2 Background/Background.png" id="1_rgst3"]
 [ext_resource type="PackedScene" uid="uid://cm388cvg5gs45" path="res://scenes/player.tscn" id="6_3oa76"]
 [ext_resource type="Texture2D" uid="uid://c8eumd76duefe" path="res://art/texture.png" id="15_ect3f"]
 [ext_resource type="PackedScene" uid="uid://wi3wuw2ftrxj" path="res://scenes/enemyscreen.tscn" id="17_hjpuj"]
