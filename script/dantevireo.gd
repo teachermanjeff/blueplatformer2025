@@ -1,27 +1,38 @@
 extends CharacterBody2D
 
 const MOVE_SPEED = 100
-const GRAVITY = 980
-const JUMP_SPEED = -400
+const GRAVITY = 2200
+const JUMP_SPEED = -600
 
+var knockback = false
 var current_dir = "right"  # direction the character is facing
-
-@export var BulletScene: PackedScene  # Drag & drop Bullet.tscn in the inspector
+var BulletScene = preload("res://bullet.tscn")
+#@export var BulletScene: PackedScene  # Drag & drop Bullet.tscn in the inspector
 @onready var gun_muzzle = $GunMuzzle  # Make sure you added a Marker2D called "GunMuzzle"
 @export var ammo_label: Label    # Reference to the Label node inside CanvasLayer
 
-var shots_left := 10
+var shots_left = 9
 const MAX_SHOTS := 10
 const RELOAD_TIME := 2.5
 var reloading := false
 
-func _ready():
+#func _ready():
+	
 	# Update the label with the initial ammo count
-	update_ammo_label()
-
+	###update_ammo_label()
+	
 func _physics_process(delta):
+
+		
 	# Apply gravity
 	velocity.y += GRAVITY * delta
+	if knockback == true:
+		if get_parent().get_node("enemyscreen").player.global_position.x > global_position.x:
+			$AnimatedSprite2D.global_position.x += 50
+			knockback = false
+		if get_parent().get_node("enemyscreen").player.global_position.x < global_position.x:
+			$AnimatedSprite2D.global_position.x -= 50
+			knockback = false
 
 	var movement = 0  # 0 = idle, 1 = moving
 
@@ -51,7 +62,7 @@ func _physics_process(delta):
 		shoot()
 
 	# Check if the player presses "R" to reload
-	if Input.is_action_just_pressed("reload") and !reloading and shots_left < MAX_SHOTS:
+	if Input.is_action_just_pressed("reload") and !reloading and shots_left < 10:
 		start_reload()
 
 	# Play animation based on movement and direction
@@ -90,41 +101,45 @@ func shoot():
 	bullet.global_position = gun_muzzle.global_position
 
 	if current_dir == "right":
-		bullet.direction = Vector2.RIGHT
+		bullet.direction = 1
 	else:
-		bullet.direction = Vector2.LEFT
+		bullet.direction = -1
 
 	get_tree().current_scene.add_child(bullet)
 
 	# Reduce shots left
-	shots_left -= 1
+	get_parent().get_node("HUD").ammo -= 1
+	#shots_left -= 1
 
 	# Update ammo label
-	update_ammo_label()
+	#update_ammo_label()
 
 	# Start reload if out of ammo
-	if shots_left == 0:
+	if get_parent().get_node("HUD").ammo == 0:
 		start_reload()
 
 func start_reload():
+
 	reloading = true
 	print("Reloading...")
 
 	# Set the ammo label to "Reloading" while reloading
-	ammo_label.text = "Reloading..."
+	get_parent().get_node("HUD").ammo_reload = true
+	###ammo_label.text = "Reloading..."
 
 	# Start the reload animation here
 	$AnimatedSprite2D.play("reload")
 
 	# Wait for the reload to finish (this could be done with a timer or async)
 	await get_tree().create_timer(RELOAD_TIME).timeout
-	
-	shots_left = MAX_SHOTS
+	get_parent().get_node("HUD").ammo = 10
+	####shots_left = MAX_SHOTS
 	reloading = false
+	get_parent().get_node("HUD").ammo_reload = false
 	print("Reload complete!")
 
 	# Update ammo label to reflect the remaining ammo after reloading
-	update_ammo_label()
+	###update_ammo_label()
 
 	# After reloading, return to idle or walk animation
 	if velocity.x == 0:
@@ -135,3 +150,10 @@ func start_reload():
 # Function to update the ammo counter on screen
 func update_ammo_label():
 	ammo_label.text = "Ammo: " + str(shots_left) + "/" + str(MAX_SHOTS)
+
+
+func _on_hurtzone_area_entered(area: Area2D) -> void:
+	print("i am shot")
+	get_parent().get_node("HUD").health -= 1
+	knockback = true
+	pass # Replace with function body.
