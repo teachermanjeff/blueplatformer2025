@@ -1,15 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://cejarwn7du328"]
+[gd_scene load_steps=4 format=3 uid="uid://mxkv2yikachc"]
 
-[ext_resource type="Script" uid="uid://uecg6u0aoq28" path="res://script/goal.gd" id="1_jbojv"]
+[ext_resource type="Script" uid="uid://uecg6u0aoq28" path="res://script/goal.gd" id="1_0qle8"]
+[ext_resource type="Texture2D" uid="uid://qt63cdr6ja43" path="res://icon.svg" id="1_6k3qi"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sx1j4"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qle8"]
+size = Vector2(127.465, 127.71)
 
-[node name="goal" type="Area2D"]
-script = ExtResource("1_jbojv")
+[node name="Goal" type="Area2D"]
+script = ExtResource("1_0qle8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6k3qi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_sx1j4")
+shape = SubResource("RectangleShape2D_0qle8")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
