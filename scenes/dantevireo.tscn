@@ -14,7 +14,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5nv0c"]
 radius = 13.5
-height = 59.0
+height = 57.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kqknl"]
 atlas = ExtResource("1_tsmr2")
@@ -638,7 +638,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_di3h4"]
 radius = 14.0
-height = 62.0
+height = 58.0
 
 [node name="dantevireo" type="CharacterBody2D"]
 position = Vector2(449, 794)
@@ -649,12 +649,20 @@ metadata/_edit_group_ = true
 position = Vector2(-2.5, 35.5)
 shape = SubResource("CapsuleShape2D_5nv0c")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+limit_left = 0
+limit_top = 0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, 12)
 scale = Vector2(0.90625, 0.8125)
 sprite_frames = SubResource("SpriteFrames_h4bv2")
 animation = &"jump"
 frame_progress = 0.534602
+speed_scale = 3.0
 
 [node name="GunMuzzle" type="Marker2D" parent="."]
 position = Vector2(-2, 31)
