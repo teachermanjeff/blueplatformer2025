@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://n1tvq8pb07uk"]
 
-[ext_resource type="Script" uid="uid://ccw7pcgcbajiq" path="res://scenes/hud.gd" id="1_ahhtf"]
+[ext_resource type="Script" uid="uid://ccw7pcgcbajiq" path="res://scenes/UI/hud.gd" id="1_ahhtf"]
 [ext_resource type="FontFile" uid="uid://b4drnp76yyyc2" path="res://ARCADECLASSIC.TTF" id="2_oo0fn"]
 
 [node name="HUD" type="CanvasLayer"]

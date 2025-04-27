@@ -3,11 +3,11 @@ extends CharacterBody2D
 const MOVE_SPEED = 100
 const GRAVITY = 2200
 const JUMP_SPEED = -600
+const RUN_SPEED = 200  # Speed when running (Shift pressed)
 
 var knockback = false
 var current_dir = "right"  # direction the character is facing
 var BulletScene = preload("res://bullet.tscn")
-#@export var BulletScene: PackedScene  # Drag & drop Bullet.tscn in the inspector
 @onready var gun_muzzle = $GunMuzzle  # Make sure you added a Marker2D called "GunMuzzle"
 @export var ammo_label: Label    # Reference to the Label node inside CanvasLayer
 
@@ -16,14 +16,8 @@ const MAX_SHOTS := 10
 const RELOAD_TIME := 2.5
 var reloading := false
 
-#func _ready():
-	
-	# Update the label with the initial ammo count
-	###update_ammo_label()
-	
 func _physics_process(delta):
 
-		
 	# Apply gravity
 	velocity.y += GRAVITY * delta
 	if knockback == true:
@@ -44,11 +38,11 @@ func _physics_process(delta):
 		# Handle horizontal movement
 		if Input.is_action_pressed("move_left"):
 			current_dir = "left"
-			velocity.x = -MOVE_SPEED
+			velocity.x = -MOVE_SPEED if !Input.is_action_pressed("shift") else -RUN_SPEED
 			movement = 1
-		elif Input.is_action_pressed("move_right"):
+		elif Input.is_action_pressed("move_right") && Input.is_action_pressed("move_right"):
 			current_dir = "right"
-			velocity.x = MOVE_SPEED
+			velocity.x = RUN_SPEED if Input.is_action_pressed("shift") else MOVE_SPEED
 			movement = 1
 		else:
 			velocity.x = 0
@@ -65,12 +59,11 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("reload") and !reloading and shots_left < 10:
 		start_reload()
 
-	# Play animation based on movement and direction
+	# Play animation based on movement, direction, and shift key
 	play_anim(movement)
 
 	# Move the character
 	move_and_slide()
-
 
 func play_anim(movement):
 	var anim = $AnimatedSprite2D
@@ -85,7 +78,9 @@ func play_anim(movement):
 	if reloading:
 		anim.play("reload")
 	elif !is_on_floor():
-		anim.play("jump")  # <- make sure you have a 'jump' animation
+		anim.play("jump")
+	elif Input.is_action_pressed("shift") and movement == 1:  # Ensure running only if moving
+		anim.play("run")
 	elif movement == 1:
 		anim.play("walk")
 	else:
@@ -109,23 +104,17 @@ func shoot():
 
 	# Reduce shots left
 	get_parent().get_node("HUD").ammo -= 1
-	#shots_left -= 1
-
-	# Update ammo label
-	#update_ammo_label()
 
 	# Start reload if out of ammo
 	if get_parent().get_node("HUD").ammo == 0:
 		start_reload()
 
 func start_reload():
-
 	reloading = true
 	print("Reloading...")
 
 	# Set the ammo label to "Reloading" while reloading
 	get_parent().get_node("HUD").ammo_reload = true
-	###ammo_label.text = "Reloading..."
 
 	# Start the reload animation here
 	$AnimatedSprite2D.play("reload")
@@ -133,13 +122,9 @@ func start_reload():
 	# Wait for the reload to finish (this could be done with a timer or async)
 	await get_tree().create_timer(RELOAD_TIME).timeout
 	get_parent().get_node("HUD").ammo = 10
-	####shots_left = MAX_SHOTS
 	reloading = false
 	get_parent().get_node("HUD").ammo_reload = false
 	print("Reload complete!")
-
-	# Update ammo label to reflect the remaining ammo after reloading
-	###update_ammo_label()
 
 	# After reloading, return to idle or walk animation
 	if velocity.x == 0:
@@ -151,9 +136,12 @@ func start_reload():
 func update_ammo_label():
 	ammo_label.text = "Ammo: " + str(shots_left) + "/" + str(MAX_SHOTS)
 
-
 func _on_hurtzone_area_entered(area: Area2D) -> void:
 	print("i am shot")
 	get_parent().get_node("HUD").health -= 1
 	knockback = true
 	pass # Replace with function body.
+
+  # Check if health is 0 and restart the scene (or handle death)
+	if get_parent().get_node("HUD").health == 0:
+		$AnimatedSprite2D.play("death")  # Reload the scene to restart

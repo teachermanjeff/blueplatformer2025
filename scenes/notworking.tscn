@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dxb3sc2d072i2" path="res://art/tileset/Main Tileset/3 Objects/1 Tube/3.png" id="5_2ifxk"]
 [ext_resource type="Texture2D" uid="uid://d11mfmxyh60sv" path="res://art/tileset/Main Tileset/3 Objects/2 Decoration/12.png" id="6_r56qy"]
 [ext_resource type="Texture2D" uid="uid://bl2ssejkyqkr" path="res://art/tileset/Main Tileset/3 Objects/1 Tube/1.png" id="7_eo7bd"]
-[ext_resource type="PackedScene" uid="uid://bb5r8xir4os0g" path="res://scenes/parralax.tscn" id="9_62ogi"]
+[ext_resource type="PackedScene" uid="uid://bb5r8xir4os0g" path="res://scenes/ParallaxBackground.tscn" id="9_62ogi"]
 [ext_resource type="PackedScene" uid="uid://cu351ge424nrk" path="res://scenes/dantevireo.tscn" id="13_docyl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jtjta"]
