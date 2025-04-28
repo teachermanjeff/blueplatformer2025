@@ -56,7 +56,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 
 
 func _on_hurt_area_entered(area: Area2D) -> void:
-	$Sprite2D.play("dead")
+	$AnimatedSprite2D.play("dead")
 	var dead = true
 	print("you dead")
 	area.queue_free()

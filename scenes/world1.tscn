@@ -736,10 +736,10 @@ layer_1/tile_data = PackedInt32Array(1310720, 0, 16, 1310721, 65536, 16, 1310722
 layer_2/name = "Layer0"
 layer_2/tile_data = PackedInt32Array(1245193, 7, 0)
 
-[node name="Node2D" parent="." instance=ExtResource("9_62ogi")]
-position = Vector2(-2, 2)
+
 
 [node name="dantevireo" parent="." instance=ExtResource("13_docyl")]
 position = Vector2(32, 257)
 
 [node name="HUD" parent="." instance=ExtResource("10_1msdb")]
+
