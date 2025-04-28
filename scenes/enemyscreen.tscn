@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://wi3wuw2ftrxj"]
 
-[ext_resource type="Script" uid="uid://kpkbu1qiytoh" path="res://scenes/Enemies/enemyscreen.gd" id="1_iiinl"]
+[ext_resource type="Script" uid="uid://kpkbu1qiytoh" path="res://scenes/enemyscreen.gd" id="1_iiinl"]
 [ext_resource type="Texture2D" uid="uid://bxqy3kqjwqjnt" path="res://art/characters/Soldier_1/Walk.png" id="2_2o4fh"]
 [ext_resource type="Texture2D" uid="uid://bhgba2bcmxgo" path="res://art/characters/Soldier_1/Dead.png" id="3_iiinl"]
 
@@ -113,11 +113,10 @@ script = ExtResource("1_iiinl")
 
 [node name="gun_muzzle" type="Marker2D" parent="."]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -20)
 scale = Vector2(0.890625, 0.6875)
 sprite_frames = SubResource("SpriteFrames_e2rbn")
-frame_progress = 0.137874
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)

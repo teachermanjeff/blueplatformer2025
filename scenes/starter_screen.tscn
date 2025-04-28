@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dc4ntpy28kojh"]
 
-[ext_resource type="Script" uid="uid://ca4ladlkusob" path="res://scenes/UI/starter_screen.gd" id="1_ij4ak"]
-[ext_resource type="Texture2D" uid="uid://drefala0v4eru" path="res://scenes/UI/starterscreenportrait.png" id="2_ij4ak"]
+[ext_resource type="Script" uid="uid://ca4ladlkusob" path="res://scenes/starter_screen.gd" id="1_ij4ak"]
+[ext_resource type="Texture2D" uid="uid://drefala0v4eru" path="res://scenes/starterscreenportrait.png" id="2_ij4ak"]
 [ext_resource type="FontFile" uid="uid://b4drnp76yyyc2" path="res://ARCADECLASSIC.TTF" id="3_ldvoq"]
 
 [node name="Starter screen" type="Node2D"]

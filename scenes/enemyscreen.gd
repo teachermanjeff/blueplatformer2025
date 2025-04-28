@@ -1,5 +1,5 @@
 extends CharacterBody2D
-var movespeed = 1
+var movespeed = 50
 const gravity = 60
 #@export var anim: AnimatedSprite2D
 var player = null
@@ -21,11 +21,11 @@ func _physics_process(delta: float) -> void:
 		if player.global_position.x > global_position.x:
 			velocity.x += 2
 			current_dir = "right"
-			$AnimatedSprite2D.flip_h = false
+			$Sprite2D.flip_h = false
 		if player.global_position.x < global_position.x:
 			current_dir = "left"
 			velocity.x -= 2
-			$AnimatedSprite2D.flip_h = true
+			$Sprite2D.flip_h = true
 			
 		if shoot == true:
 			var new_bullet = bullet.instantiate()
@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:
 
 
 		#get_tree().current_scene.add_child(bullet)
-	$AnimatedSprite2D.play("default")
+	$Sprite2D.play("default")
 	move_and_slide()
 
 

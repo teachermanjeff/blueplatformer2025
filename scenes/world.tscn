@@ -1,26 +1,25 @@
-[gd_scene load_steps=28 format=3 uid="uid://be2l3qnfopu1q"]
+[gd_scene load_steps=27 format=3 uid="uid://be2l3qnfopu1q"]
 
-[ext_resource type="Texture2D" uid="uid://dbmxg6pnx7ydq" path="res://art/tileset/Main Tileset/1 Tiles/Main Tileset Ground.png" id="1_u5n8i"]
-[ext_resource type="Texture2D" uid="uid://c82mp5gcrumxy" path="res://art/tileset/Main Tileset/3 Objects/2 Decoration/24.png" id="2_0u6et"]
-[ext_resource type="Texture2D" uid="uid://bwytahja7yjpy" path="res://art/tileset/Main Tileset/3 Objects/3 Power lines/4.png" id="3_x5jvf"]
-[ext_resource type="Texture2D" uid="uid://csg5bqwx5vpcf" path="res://art/tileset/Main Tileset/3 Objects/3 Power lines/2.png" id="4_qkcr3"]
-[ext_resource type="Texture2D" uid="uid://dxb3sc2d072i2" path="res://art/tileset/Main Tileset/3 Objects/1 Tube/3.png" id="5_v6tak"]
-[ext_resource type="Texture2D" uid="uid://d11mfmxyh60sv" path="res://art/tileset/Main Tileset/3 Objects/2 Decoration/12.png" id="6_oc10i"]
-[ext_resource type="Texture2D" uid="uid://bl2ssejkyqkr" path="res://art/tileset/Main Tileset/3 Objects/1 Tube/1.png" id="7_w43c8"]
-[ext_resource type="PackedScene" uid="uid://cu351ge424nrk" path="res://scenes/dantevireo.tscn" id="8_w6cwn"]
-[ext_resource type="Texture2D" uid="uid://eo0mpfqbwo3u" path="res://art/controllericonright.svg" id="9_2cm41"]
-[ext_resource type="Texture2D" uid="uid://bxgkvw0u14qv8" path="res://art/controllericon.svg" id="10_i5p3r"]
-[ext_resource type="Texture2D" uid="uid://cxrbqhtgx5vx3" path="res://art/spaceicon.svg" id="11_8dweu"]
-[ext_resource type="Texture2D" uid="uid://2dpvo1foicne" path="res://art/tileset/Main Tileset/2 Background/Night/1.png" id="12_45q25"]
-[ext_resource type="Texture2D" uid="uid://dhxyfoo4jx6km" path="res://art/tileset/Main Tileset/2 Background/Night/2.png" id="13_40ejp"]
-[ext_resource type="Texture2D" uid="uid://biehv5v874vqn" path="res://art/tileset/Main Tileset/2 Background/Night/3.png" id="14_c8b05"]
-[ext_resource type="Texture2D" uid="uid://dlflhx8ympmcb" path="res://art/tileset/Main Tileset/2 Background/Night/4.png" id="15_i25ju"]
-[ext_resource type="Texture2D" uid="uid://cm42oh2x48foh" path="res://art/tileset/Main Tileset/2 Background/Night/5.png" id="16_y3ou0"]
-[ext_resource type="PackedScene" uid="uid://n1tvq8pb07uk" path="res://scenes/UI/hud.tscn" id="17_si6lo"]
-[ext_resource type="PackedScene" uid="uid://wi3wuw2ftrxj" path="res://scenes/Enemies/enemyscreen.tscn" id="18_0u6et"]
+[ext_resource type="Texture2D" uid="uid://dbmxg6pnx7ydq" path="res://art/tileset/Main Tileset/1 Tiles/Main Tileset Ground.png" id="1_rwgxs"]
+[ext_resource type="Texture2D" uid="uid://c82mp5gcrumxy" path="res://art/tileset/Main Tileset/3 Objects/2 Decoration/24.png" id="2_4wyf3"]
+[ext_resource type="PackedScene" uid="uid://cu351ge424nrk" path="res://scenes/dantevireo.tscn" id="2_rwgxs"]
+[ext_resource type="Texture2D" uid="uid://bwytahja7yjpy" path="res://art/tileset/Main Tileset/3 Objects/3 Power lines/4.png" id="3_i7141"]
+[ext_resource type="Texture2D" uid="uid://csg5bqwx5vpcf" path="res://art/tileset/Main Tileset/3 Objects/3 Power lines/2.png" id="4_4mrxx"]
+[ext_resource type="Texture2D" uid="uid://d11mfmxyh60sv" path="res://art/tileset/Main Tileset/3 Objects/2 Decoration/12.png" id="5_7r4gi"]
+[ext_resource type="Texture2D" uid="uid://dxb3sc2d072i2" path="res://art/tileset/Main Tileset/3 Objects/1 Tube/3.png" id="5_jhx03"]
+[ext_resource type="Texture2D" uid="uid://bl2ssejkyqkr" path="res://art/tileset/Main Tileset/3 Objects/1 Tube/1.png" id="6_w7kh3"]
+[ext_resource type="Texture2D" uid="uid://2dpvo1foicne" path="res://art/tileset/Main Tileset/2 Background/Night/1.png" id="8_q5onr"]
+[ext_resource type="Texture2D" uid="uid://dhxyfoo4jx6km" path="res://art/tileset/Main Tileset/2 Background/Night/2.png" id="9_jhx03"]
+[ext_resource type="Texture2D" uid="uid://eo0mpfqbwo3u" path="res://art/controllericonright.svg" id="9_xo05s"]
+[ext_resource type="Texture2D" uid="uid://bxgkvw0u14qv8" path="res://art/controllericon.svg" id="10_dss4m"]
+[ext_resource type="Texture2D" uid="uid://biehv5v874vqn" path="res://art/tileset/Main Tileset/2 Background/Night/3.png" id="10_o8fc1"]
+[ext_resource type="Texture2D" uid="uid://cxrbqhtgx5vx3" path="res://art/spaceicon.svg" id="11_7t5mc"]
+[ext_resource type="Texture2D" uid="uid://dlflhx8ympmcb" path="res://art/tileset/Main Tileset/2 Background/Night/4.png" id="11_xo05s"]
+[ext_resource type="Texture2D" uid="uid://cm42oh2x48foh" path="res://art/tileset/Main Tileset/2 Background/Night/5.png" id="12_dss4m"]
+[ext_resource type="PackedScene" uid="uid://n1tvq8pb07uk" path="res://scenes/hud.tscn" id="14_o8fc1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jhx03"]
-texture = ExtResource("1_u5n8i")
+texture = ExtResource("1_rwgxs")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -675,41 +674,42 @@ texture = ExtResource("1_u5n8i")
 8:31/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o8fc1"]
-texture = ExtResource("2_0u6et")
+texture = ExtResource("2_4wyf3")
 texture_region_size = Vector2i(17, 19)
 0:0/size_in_atlas = Vector2i(4, 4)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xo05s"]
-texture = ExtResource("3_x5jvf")
+texture = ExtResource("3_i7141")
 texture_region_size = Vector2i(17, 16)
 0:0/size_in_atlas = Vector2i(4, 12)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dss4m"]
-texture = ExtResource("4_qkcr3")
+texture = ExtResource("4_4mrxx")
 texture_region_size = Vector2i(18, 16)
 0:0/size_in_atlas = Vector2i(4, 4)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7t5mc"]
-texture = ExtResource("5_v6tak")
+texture = ExtResource("5_jhx03")
 texture_region_size = Vector2i(26, 16)
 0:0/size_in_atlas = Vector2i(1, 4)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lakw3"]
-texture = ExtResource("6_oc10i")
+texture = ExtResource("5_7r4gi")
 texture_region_size = Vector2i(26, 18)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pm21f"]
-texture = ExtResource("7_w43c8")
+texture = ExtResource("6_w7kh3")
 texture_region_size = Vector2i(24, 25)
 0:0/0 = 0
 1:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_71j4m"]
+
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_jhx03")
 sources/1 = SubResource("TileSetAtlasSource_o8fc1")
@@ -718,6 +718,7 @@ sources/3 = SubResource("TileSetAtlasSource_dss4m")
 sources/5 = SubResource("TileSetAtlasSource_lakw3")
 sources/6 = SubResource("TileSetAtlasSource_pm21f")
 sources/4 = SubResource("TileSetAtlasSource_7t5mc")
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xo05s"]
 size = Vector2(122, 122)
@@ -734,29 +735,27 @@ layer_1/tile_data = PackedInt32Array(196608, 524288, 31, 196609, 589824, 31, 262
 layer_2/name = "objects"
 layer_2/tile_data = PackedInt32Array(393228, 1, 0, 458822, 4, 0, 196678, 4, 0, -65466, 4, 0, 720966, 4, 0)
 
-[node name="player" parent="." instance=ExtResource("8_w6cwn")]
+[node name="player" parent="." instance=ExtResource("2_rwgxs")]
 position = Vector2(112, 75)
 
-[node name="Touch Controls" type="Node2D" parent="player"]
-
-[node name="moveright" type="TouchScreenButton" parent="player/Touch Controls"]
+[node name="moveright" type="TouchScreenButton" parent="player"]
 position = Vector2(173.667, 105.253)
 scale = Vector2(0.982358, 0.982358)
-texture_normal = ExtResource("9_2cm41")
+texture_normal = ExtResource("9_xo05s")
 shape = SubResource("RectangleShape2D_xo05s")
 action = "move_right"
 
-[node name="moveleft" type="TouchScreenButton" parent="player/Touch Controls"]
+[node name="moveleft" type="TouchScreenButton" parent="player"]
 position = Vector2(-243.835, 105.253)
 scale = Vector2(0.982358, 0.982358)
-texture_normal = ExtResource("10_i5p3r")
+texture_normal = ExtResource("10_dss4m")
 shape = SubResource("RectangleShape2D_xo05s")
 action = "move_left"
 
-[node name="moveleft2" type="TouchScreenButton" parent="player/Touch Controls"]
+[node name="moveleft2" type="TouchScreenButton" parent="player"]
 position = Vector2(-31.5758, 110.515)
 scale = Vector2(0.982358, 0.982358)
-texture_normal = ExtResource("11_8dweu")
+texture_normal = ExtResource("11_7t5mc")
 shape = SubResource("RectangleShape2D_xo05s")
 action = "Jump"
 
@@ -768,7 +767,7 @@ motion_mirroring = Vector2(576, 0)
 
 [node name="1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(256, 0)
-texture = ExtResource("12_45q25")
+texture = ExtResource("8_q5onr")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.25, 0.25)
@@ -776,7 +775,7 @@ motion_mirroring = Vector2(576, 0)
 
 [node name="3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
 position = Vector2(256, 0)
-texture = ExtResource("13_40ejp")
+texture = ExtResource("9_jhx03")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.5, 0.5)
@@ -784,7 +783,7 @@ motion_mirroring = Vector2(576, 0)
 
 [node name="2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(256, 0)
-texture = ExtResource("14_c8b05")
+texture = ExtResource("10_o8fc1")
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.75, 0.75)
@@ -792,16 +791,13 @@ motion_mirroring = Vector2(576, 0)
 
 [node name="4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
 position = Vector2(256, -100)
-texture = ExtResource("15_i25ju")
+texture = ExtResource("11_xo05s")
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(576, 0)
 
 [node name="5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
 position = Vector2(256, -162)
-texture = ExtResource("16_y3ou0")
+texture = ExtResource("12_dss4m")
 
-[node name="HUD" parent="." instance=ExtResource("17_si6lo")]
-
-[node name="enemyscreen" parent="." instance=ExtResource("18_0u6et")]
-position = Vector2(629, 120)
+[node name="HUD" parent="." instance=ExtResource("14_o8fc1")]
