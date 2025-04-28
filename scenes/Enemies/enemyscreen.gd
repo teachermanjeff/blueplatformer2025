@@ -1,5 +1,5 @@
 extends CharacterBody2D
-var movespeed = 50
+var movespeed = 1
 const gravity = 60
 #@export var anim: AnimatedSprite2D
 var player = null
@@ -21,11 +21,11 @@ func _physics_process(delta: float) -> void:
 		if player.global_position.x > global_position.x:
 			velocity.x += 2
 			current_dir = "right"
-			$Sprite2D.flip_h = false
+			$AnimatedSprite2D.flip_h = false
 		if player.global_position.x < global_position.x:
 			current_dir = "left"
 			velocity.x -= 2
-			$Sprite2D.flip_h = true
+			$AnimatedSprite2D.flip_h = true
 			
 		if shoot == true:
 			var new_bullet = bullet.instantiate()
@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:
 
 
 		#get_tree().current_scene.add_child(bullet)
-	$Sprite2D.play("default")
+	$AnimatedSprite2D.play("default")
 	move_and_slide()
 
 
@@ -56,7 +56,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 
 
 func _on_hurt_area_entered(area: Area2D) -> void:
-	$Sprite2D.play("dead")
+	$AnimatedSprite2D.play("dead")
 	var dead = true
 	print("you dead")
 	area.queue_free()
