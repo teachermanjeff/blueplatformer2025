@@ -27,6 +27,10 @@ func _physics_process(delta):
 		if get_parent().get_node("enemyscreen").player.global_position.x < global_position.x:
 			$AnimatedSprite2D.global_position.x -= 50
 			knockback = false
+	
+	# Handle shooting
+	
+
 
 	var movement = 0  # 0 = idle, 1 = moving
 
@@ -52,9 +56,8 @@ func _physics_process(delta):
 		velocity.y = JUMP_SPEED
 
 	# Handle shooting
-	if Input.is_action_just_pressed("shoot") and !reloading:
-		shoot()
-
+	if Input.is_action_just_pressed("shoot") and !reloading and is_on_floor():
+			shoot()
 	# Check if the player presses "R" to reload
 	if Input.is_action_just_pressed("reload") and !reloading and shots_left < 10:
 		start_reload()

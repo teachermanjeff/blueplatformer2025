@@ -709,7 +709,6 @@ texture_region_size = Vector2i(24, 25)
 1:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_71j4m"]
-
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_jhx03")
 sources/1 = SubResource("TileSetAtlasSource_o8fc1")
@@ -718,7 +717,6 @@ sources/3 = SubResource("TileSetAtlasSource_dss4m")
 sources/5 = SubResource("TileSetAtlasSource_lakw3")
 sources/6 = SubResource("TileSetAtlasSource_pm21f")
 sources/4 = SubResource("TileSetAtlasSource_7t5mc")
-
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xo05s"]
 size = Vector2(122, 122)

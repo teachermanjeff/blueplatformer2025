@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://n1tvq8pb07uk"]
+[gd_scene load_steps=7 format=3 uid="uid://n1tvq8pb07uk"]
 
 [ext_resource type="Script" uid="uid://ccw7pcgcbajiq" path="res://scenes/hud.gd" id="1_ahhtf"]
 [ext_resource type="FontFile" uid="uid://b4drnp76yyyc2" path="res://ARCADECLASSIC.TTF" id="2_oo0fn"]
+[ext_resource type="Texture2D" uid="uid://eo0mpfqbwo3u" path="res://art/controllericonright.svg" id="3_uo2fv"]
+[ext_resource type="Texture2D" uid="uid://bxgkvw0u14qv8" path="res://art/controllericon.svg" id="4_047uy"]
+[ext_resource type="Texture2D" uid="uid://cxrbqhtgx5vx3" path="res://art/spaceicon.svg" id="5_5pdws"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hd3ao"]
+size = Vector2(122, 122)
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_ahhtf")
@@ -24,3 +30,26 @@ offset_bottom = 131.0
 theme_override_fonts/font = ExtResource("2_oo0fn")
 theme_override_font_sizes/font_size = 60
 text = "Ammo:"
+
+[node name="moveright" type="TouchScreenButton" parent="."]
+position = Vector2(549.502, 475)
+scale = Vector2(0.982358, 0.982358)
+texture_normal = ExtResource("3_uo2fv")
+shape = SubResource("RectangleShape2D_hd3ao")
+action = "move_right"
+
+[node name="moveleft" type="TouchScreenButton" parent="."]
+position = Vector2(132, 475)
+scale = Vector2(0.982358, 0.982358)
+texture_normal = ExtResource("4_047uy")
+shape = SubResource("RectangleShape2D_hd3ao")
+action = "move_left"
+
+[node name="moveleft2" type="TouchScreenButton" parent="."]
+position = Vector2(344.259, 480.262)
+scale = Vector2(0.982358, 0.982358)
+texture_normal = ExtResource("5_5pdws")
+shape = SubResource("RectangleShape2D_hd3ao")
+action = "Jump"
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
