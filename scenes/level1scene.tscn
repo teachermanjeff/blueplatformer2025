@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dxqauqbf5j022"]
+[gd_scene load_steps=9 format=3 uid="uid://dxqauqbf5j022"]
 
 [ext_resource type="PackedScene" uid="uid://n1tvq8pb07uk" path="res://scenes/hud.tscn" id="1_jj8qu"]
 [ext_resource type="Texture2D" uid="uid://cvienohk006fg" path="res://art/unusedtileset/2 Background/Background.png" id="1_rgst3"]
 [ext_resource type="PackedScene" uid="uid://cu351ge424nrk" path="res://scenes/dantevireo.tscn" id="6_3oa76"]
-[ext_resource type="PackedScene" uid="uid://mxkv2yikachc" path="res://scenes/goal.tscn" id="7_8u1b6"]
 [ext_resource type="Texture2D" uid="uid://c8eumd76duefe" path="res://art/texture.png" id="15_ect3f"]
 [ext_resource type="PackedScene" uid="uid://wi3wuw2ftrxj" path="res://scenes/enemyscreen.tscn" id="17_hjpuj"]
 [ext_resource type="PackedScene" uid="uid://btle3lr0pocuh" path="res://scenes/bumper.tscn" id="18_1awn2"]
@@ -658,10 +657,6 @@ position = Vector2(835, 588.495)
 
 [node name="Bumper2" parent="." instance=ExtResource("18_1awn2")]
 position = Vector2(346, 580.461)
-
-[node name="Goal" parent="." instance=ExtResource("7_8u1b6")]
-position = Vector2(247, 639.712)
-nextlevel = "uid://d2otgecp24gx7"
 
 [node name="player" parent="." instance=ExtResource("6_3oa76")]
 position = Vector2(140, 645.738)
