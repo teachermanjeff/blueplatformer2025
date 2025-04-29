@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d2otgecp24gx7"]
+[gd_scene load_steps=22 format=3 uid="uid://d2otgecp24gx7"]
 
 [ext_resource type="Texture2D" uid="uid://dbmxg6pnx7ydq" path="res://art/tileset/Main Tileset/1 Tiles/Main Tileset Ground.png" id="1_wnwuj"]
 [ext_resource type="Texture2D" uid="uid://c82mp5gcrumxy" path="res://art/tileset/Main Tileset/3 Objects/2 Decoration/24.png" id="2_bu1hf"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://8eahw7jmrx2k" path="res://art/tileset/Main Tileset/3 Objects/2 Decoration/26.png" id="8_cqo20"]
 [ext_resource type="PackedScene" uid="uid://n1tvq8pb07uk" path="res://scenes/hud.tscn" id="10_1msdb"]
 [ext_resource type="PackedScene" uid="uid://bb5r8xir4os0g" path="res://scenes/parralax.tscn" id="11_cqo20"]
+[ext_resource type="PackedScene" uid="uid://wi3wuw2ftrxj" path="res://scenes/enemyscreen.tscn" id="12_f4ck5"]
 [ext_resource type="PackedScene" uid="uid://cu351ge424nrk" path="res://scenes/dantevireo.tscn" id="13_docyl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jtjta"]
@@ -714,7 +715,8 @@ texture_region_size = Vector2i(17, 16)
 0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_7xpa1"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 16
+physics_layer_0/collision_mask = 17
 sources/0 = SubResource("TileSetAtlasSource_jtjta")
 sources/1 = SubResource("TileSetAtlasSource_r2nql")
 sources/2 = SubResource("TileSetAtlasSource_vpawe")
@@ -738,7 +740,11 @@ layer_2/tile_data = PackedInt32Array(1245193, 7, 0)
 
 [node name="dantevireo" parent="." instance=ExtResource("13_docyl")]
 position = Vector2(32, 257)
+collision_mask = 17
 
 [node name="HUD" parent="." instance=ExtResource("10_1msdb")]
 
 [node name="parralaxnode" parent="." instance=ExtResource("11_cqo20")]
+
+[node name="enemyscreen" parent="." instance=ExtResource("12_f4ck5")]
+position = Vector2(636, 295)

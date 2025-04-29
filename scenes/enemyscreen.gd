@@ -16,7 +16,7 @@ func _ready():
 	
 func _physics_process(delta: float) -> void:
 
-	if player_chase:
+	if player_chase == true:
 		#velocity.x = movespeed
 		if player.global_position.x > global_position.x:
 			velocity.x += 2

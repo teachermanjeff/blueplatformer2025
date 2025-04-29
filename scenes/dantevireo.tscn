@@ -672,4 +672,8 @@ collision_mask = 32
 position = Vector2(-2, 35)
 shape = SubResource("CapsuleShape2D_di3h4")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
 [connection signal="area_entered" from="hurtzone" to="." method="_on_hurtzone_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
