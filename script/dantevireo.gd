@@ -10,7 +10,7 @@ var current_dir = "right"  # direction the character is facing
 var BulletScene = preload("res://bullet.tscn")
 @onready var gun_muzzle = $GunMuzzle  # Make sure you added a Marker2D called "GunMuzzle"
 @export var ammo_label: Label    # Reference to the Label node inside CanvasLayer
-
+var can_shoot = true
 var shots_left = 9
 const MAX_SHOTS := 10
 const RELOAD_TIME := 2.5
@@ -91,26 +91,30 @@ func play_anim(movement):
 
 
 func shoot():
-	if reloading or shots_left <= 0:
-		return
+	if can_shoot == true:
+		can_shoot = false
+		$Timer.start()
+		if reloading or shots_left <= 0:
+			return
 
-	# SHOOT
-	var bullet = BulletScene.instantiate()
-	bullet.global_position = gun_muzzle.global_position
+		# SHOOT
+		var bullet = BulletScene.instantiate()
+		bullet.global_position = gun_muzzle.global_position
 
-	if current_dir == "right":
-		bullet.direction = 1
-	else:
-		bullet.direction = -1
+		if current_dir == "right":
+			bullet.direction = 1
+		else:
+			bullet.direction = -1
 
-	get_tree().current_scene.add_child(bullet)
+		get_tree().current_scene.add_child(bullet)
 
-	# Reduce shots left
-	get_parent().get_node("HUD").ammo -= 1
+		# Reduce shots left
+		get_parent().get_node("HUD").ammo -= 1
 
-	# Start reload if out of ammo
-	if get_parent().get_node("HUD").ammo == 0:
-		start_reload()
+		# Start reload if out of ammo
+		if get_parent().get_node("HUD").ammo == 0:
+			start_reload()
+
 
 func start_reload():
 	reloading = true
@@ -148,3 +152,8 @@ func _on_hurtzone_area_entered(area: Area2D) -> void:
   # Check if health is 0 and restart the scene (or handle death)
 	if get_parent().get_node("HUD").health == 0:
 		$AnimatedSprite2D.play("death")  # Reload the scene to restart
+
+
+func _on_timer_timeout() -> void:
+	can_shoot = true
+	pass # Replace with function body.
