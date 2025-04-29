@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d2otgecp24gx7"]
+[gd_scene load_steps=21 format=3 uid="uid://d2otgecp24gx7"]
 
 [ext_resource type="Texture2D" uid="uid://dbmxg6pnx7ydq" path="res://art/tileset/Main Tileset/1 Tiles/Main Tileset Ground.png" id="1_wnwuj"]
 [ext_resource type="Texture2D" uid="uid://c82mp5gcrumxy" path="res://art/tileset/Main Tileset/3 Objects/2 Decoration/24.png" id="2_bu1hf"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bl2ssejkyqkr" path="res://art/tileset/Main Tileset/3 Objects/1 Tube/1.png" id="7_eo7bd"]
 [ext_resource type="Texture2D" uid="uid://8eahw7jmrx2k" path="res://art/tileset/Main Tileset/3 Objects/2 Decoration/26.png" id="8_cqo20"]
 [ext_resource type="PackedScene" uid="uid://n1tvq8pb07uk" path="res://scenes/hud.tscn" id="10_1msdb"]
+[ext_resource type="PackedScene" uid="uid://bb5r8xir4os0g" path="res://scenes/parralax.tscn" id="11_cqo20"]
 [ext_resource type="PackedScene" uid="uid://cu351ge424nrk" path="res://scenes/dantevireo.tscn" id="13_docyl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jtjta"]
@@ -739,3 +740,5 @@ layer_2/tile_data = PackedInt32Array(1245193, 7, 0)
 position = Vector2(32, 257)
 
 [node name="HUD" parent="." instance=ExtResource("10_1msdb")]
+
+[node name="parralaxnode" parent="." instance=ExtResource("11_cqo20")]
