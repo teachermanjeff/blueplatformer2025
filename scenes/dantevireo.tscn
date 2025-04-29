@@ -659,8 +659,7 @@ limit_top = 0
 position = Vector2(2, 12)
 scale = Vector2(0.90625, 0.8125)
 sprite_frames = SubResource("SpriteFrames_h4bv2")
-animation = &"jump"
-frame_progress = 0.534602
+animation = &"death"
 speed_scale = 3.0
 
 [node name="GunMuzzle" type="Marker2D" parent="."]
