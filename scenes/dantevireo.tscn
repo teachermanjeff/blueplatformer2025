@@ -641,6 +641,7 @@ radius = 14.0
 height = 58.0
 
 [node name="dantevireo" type="CharacterBody2D"]
+y_sort_enabled = true
 position = Vector2(449, 794)
 script = ExtResource("1_5nv0c")
 metadata/_edit_group_ = true
@@ -650,6 +651,7 @@ position = Vector2(-2.5, 35.5)
 shape = SubResource("CapsuleShape2D_5nv0c")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
 limit_left = 0
 limit_top = 0
 
