@@ -637,14 +637,13 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_di3h4"]
-radius = 14.0
-height = 58.0
+radius = 15.0
+height = 60.0
 
 [node name="dantevireo" type="CharacterBody2D"]
 y_sort_enabled = true
-position = Vector2(449, 794)
+position = Vector2(444, 803)
 script = ExtResource("1_5nv0c")
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.5, 35.5)
@@ -656,21 +655,21 @@ limit_left = 0
 limit_top = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(2, 12)
+position = Vector2(22, 12)
 scale = Vector2(0.90625, 0.8125)
 sprite_frames = SubResource("SpriteFrames_h4bv2")
 animation = &"death"
 speed_scale = 3.0
 
 [node name="GunMuzzle" type="Marker2D" parent="."]
-position = Vector2(-2, 31)
+position = Vector2(-22, 31)
 
 [node name="hurtzone" type="Area2D" parent="."]
 position = Vector2(0, 1)
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtzone"]
-position = Vector2(-2, 35)
+position = Vector2(-3, 35)
 shape = SubResource("CapsuleShape2D_di3h4")
 
 [node name="Timer" type="Timer" parent="."]
