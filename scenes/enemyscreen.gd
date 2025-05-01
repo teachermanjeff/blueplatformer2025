@@ -15,10 +15,9 @@ func _ready():
 	pass
 	
 func _physics_process(delta: float) -> void:
-
-	if player_chase == true and dead == false:
+	if player_chase == true:
 		#velocity.x = movespeed
-		if player.global_position.x > global_position.x:
+		if get_parent().get_node("res://scenes/enemyscreen.tscn").global_position.x > global_position.x:
 			velocity.x += 2
 			current_dir = "right"
 			$Sprite2D.flip_h = false
@@ -40,14 +39,12 @@ func _physics_process(delta: float) -> void:
 		#get_tree().current_scene.add_child(bullet)
 			$Sprite2D.play("default")
 			move_and_slide()
-
-
-	if is_on_wall():
-		movespeed = -movespeed
+		if is_on_wall():
+			movespeed = -movespeed
 		
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
-	if dead == true: 
+	if dead == false: 
 		get_parent().get_node("HUD").health -= 1
 		body.position.x -= 50
 	
@@ -55,7 +52,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 
 func _on_hurt_area_entered(area: Area2D) -> void:
 	$Sprite2D.play("dead")
-	var dead = true
+	dead = true
 	print("you dead")
 	#area.queue_free()
 	#queue_free()
@@ -64,9 +61,9 @@ func _on_hurt_area_entered(area: Area2D) -> void:
 
 func _on_detectionzone_body_entered(body: Node2D) -> void:
 	print("entered")
-	if dead == true:
+	if dead == false:
 		print("entered2")
-		player = body
+		var player = body
 		player_chase = true
 	pass # Replace with function body.
 
