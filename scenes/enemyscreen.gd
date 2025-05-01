@@ -2,7 +2,7 @@ extends CharacterBody2D
 var movespeed = 50
 const gravity = 60
 #@export var anim: AnimatedSprite2D
-var player = null
+
 var player_chase = false
 var speed = 25
 var dead = false
@@ -10,14 +10,16 @@ var current_dir = "right"  # direction the character is facing
 var shoot = true
 var bullet = preload("res://enemy_bullet.tscn") # Drag & drop Bullet.tscn in the inspector
 @onready var gun_muzzle = $gun_muzzle  # Make sure you added a Marker2D called "GunMuzzle"
-
+@onready var player = $"../dantevireo"
 func _ready():
+	
 	pass
 	
 func _physics_process(delta: float) -> void:
-	if player_chase == true:
+
+	if player_chase == true and velocity.x < 200 or velocity.x < -200:
 		#velocity.x = movespeed
-		if get_parent().get_node("res://scenes/enemyscreen.tscn").global_position.x > global_position.x:
+		if player.global_position.x > global_position.x:
 			velocity.x += 2
 			current_dir = "right"
 			$Sprite2D.flip_h = false
@@ -51,9 +53,13 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 
 
 func _on_hurt_area_entered(area: Area2D) -> void:
-	$Sprite2D.play("dead")
-	dead = true
-	print("you dead")
+	if dead == false:
+		$Sprite2D.play("dead")
+		dead = true
+		print("you dead")
+		$CollisionShape2D.queue_free()
+		$hurt/CollisionShape2D.queue_free()
+		$hitbox/CollisionShape2DollisionShape2D.queue_free()
 	#area.queue_free()
 	#queue_free()
 	
@@ -63,8 +69,9 @@ func _on_detectionzone_body_entered(body: Node2D) -> void:
 	print("entered")
 	if dead == false:
 		print("entered2")
-		var player = body
+		#var player = body
 		player_chase = true
+		$enemysound.play()
 	pass # Replace with function body.
 
 

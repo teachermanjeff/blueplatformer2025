@@ -149,6 +149,8 @@ shape = SubResource("CircleShape2D_iiinl")
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
+[node name="enemysound" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="area_entered" from="hurt" to="." method="_on_hurt_area_entered"]
 [connection signal="body_entered" from="detectionzone" to="." method="_on_detectionzone_body_entered"]
