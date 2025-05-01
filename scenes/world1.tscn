@@ -787,6 +787,8 @@ collision_mask = 17
 
 [node name="HUD" parent="." instance=ExtResource("10_1msdb")]
 
+[node name="HUD2" parent="." instance=ExtResource("10_1msdb")]
+
 [node name="parralaxnode" parent="." instance=ExtResource("11_cqo20")]
 
 [node name="enemyscreen" parent="." instance=ExtResource("12_f4ck5")]
