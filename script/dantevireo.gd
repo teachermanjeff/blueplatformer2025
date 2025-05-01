@@ -20,13 +20,13 @@ func _physics_process(delta):
 
 	# Apply gravity
 	velocity.y += GRAVITY * delta
-	if knockback == true:
-		if get_parent().get_node("enemyscreen").player.global_position.x > global_position.x:
-			$AnimatedSprite2D.global_position.x += 50
-			knockback = false
-		if get_parent().get_node("enemyscreen").player.global_position.x < global_position.x:
-			$AnimatedSprite2D.global_position.x -= 50
-			knockback = false
+	#if knockback == true:
+		#if get_parent().get_node("enemyscreen").global_position.x > global_position.x:
+			#$AnimatedSprite2D.global_position.x += 50
+			#knockback = false
+		#if get_parent().get_node("enemyscreen").global_position.x < global_position.x:
+			#$AnimatedSprite2D.global_position.x -= 50
+			#knockback = false
 	
 	# Handle shooting
 	
