@@ -650,7 +650,7 @@ position = Vector2(-2.5, 35.5)
 shape = SubResource("CapsuleShape2D_5nv0c")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
+zoom = Vector2(2, 2)
 limit_left = 0
 limit_top = 0
 
@@ -658,11 +658,11 @@ limit_top = 0
 position = Vector2(22, 12)
 scale = Vector2(0.90625, 0.8125)
 sprite_frames = SubResource("SpriteFrames_h4bv2")
-animation = &"death"
+animation = &"shot"
 speed_scale = 3.0
 
 [node name="GunMuzzle" type="Marker2D" parent="."]
-position = Vector2(-22, 31)
+position = Vector2(38, 33)
 
 [node name="hurtzone" type="Area2D" parent="."]
 position = Vector2(0, 1)

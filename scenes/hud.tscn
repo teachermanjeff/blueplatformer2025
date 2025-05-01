@@ -34,36 +34,36 @@ theme_override_font_sizes/font_size = 60
 text = "Ammo:"
 
 [node name="moveright" type="TouchScreenButton" parent="."]
-position = Vector2(351, 491)
-scale = Vector2(0.675015, 0.675015)
+position = Vector2(464, 882)
+scale = Vector2(0.389414, 0.389414)
 texture_normal = ExtResource("3_uo2fv")
 shape = SubResource("RectangleShape2D_hd3ao")
 action = "move_right"
 
 [node name="moveleft" type="TouchScreenButton" parent="."]
-position = Vector2(158, 488)
-scale = Vector2(0.675015, 0.675015)
+position = Vector2(366, 882)
+scale = Vector2(0.389414, 0.389414)
 texture_normal = ExtResource("4_047uy")
 shape = SubResource("RectangleShape2D_hd3ao")
 action = "move_left"
 
 [node name="space" type="TouchScreenButton" parent="."]
-position = Vector2(255, 490)
-scale = Vector2(0.675015, 0.675015)
+position = Vector2(415, 882)
+scale = Vector2(0.389414, 0.389414)
 texture_normal = ExtResource("5_5pdws")
 shape = SubResource("RectangleShape2D_hd3ao")
 action = "Jump"
 
 [node name="moveleft2" type="TouchScreenButton" parent="."]
-position = Vector2(448, 492)
-scale = Vector2(0.675015, 0.675015)
+position = Vector2(512, 882)
+scale = Vector2(0.389414, 0.389414)
 texture_normal = ExtResource("6_5pdws")
 shape = SubResource("RectangleShape2D_hd3ao")
 action = "shift"
 
 [node name="moveleft3" type="TouchScreenButton" parent="."]
-position = Vector2(64, 488)
-scale = Vector2(0.675015, 0.675015)
+position = Vector2(315, 882)
+scale = Vector2(0.389414, 0.389414)
 texture_normal = ExtResource("6_047uy")
 shape = SubResource("RectangleShape2D_hd3ao")
 action = "shift"

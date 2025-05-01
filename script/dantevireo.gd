@@ -97,9 +97,12 @@ func shoot():
 		if reloading or shots_left <= 0:
 			return
 
+
 		# SHOOT
 		var bullet = BulletScene.instantiate()
 		bullet.global_position = gun_muzzle.global_position
+		$AnimatedSprite2D.play("shot")
+
 
 		if current_dir == "right":
 			bullet.direction = 1
