@@ -1,5 +1,6 @@
-[gd_scene load_steps=97 format=3 uid="uid://dhrhfeu4gk6ao"]
+[gd_scene load_steps=98 format=3 uid="uid://cpn3vr0wb45wa"]
 
+[ext_resource type="Script" uid="uid://kpkbu1qiytoh" path="res://scenes/enemyscreen.gd" id="1_68fts"]
 [ext_resource type="Texture2D" uid="uid://b4l8es0grehtp" path="res://art/characters/Gangsters_3/Shot.png" id="1_byd30"]
 [ext_resource type="Texture2D" uid="uid://jt8gkhw7xej1" path="res://art/characters/Gangsters_3/Dead.png" id="2_yi43j"]
 [ext_resource type="Texture2D" uid="uid://dat6u2m1yhlyo" path="res://art/characters/Gangsters_3/Hurt.png" id="3_xsgbq"]
@@ -661,6 +662,7 @@ animations = [{
 }]
 
 [node name="finalvillain" type="CharacterBody2D"]
+script = ExtResource("1_68fts")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.25, 29.5)

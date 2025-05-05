@@ -1,5 +1,6 @@
-[gd_scene load_steps=27 format=3 uid="uid://d2otgecp24gx7"]
+[gd_scene load_steps=29 format=3 uid="uid://d2otgecp24gx7"]
 
+[ext_resource type="Script" uid="uid://fgx4g214v2q6" path="res://scenes/world_1.gd" id="1_bu1hf"]
 [ext_resource type="Texture2D" uid="uid://dbmxg6pnx7ydq" path="res://art/tileset/Main Tileset/1 Tiles/Main Tileset Ground.png" id="1_wnwuj"]
 [ext_resource type="Texture2D" uid="uid://c82mp5gcrumxy" path="res://art/tileset/Main Tileset/3 Objects/2 Decoration/24.png" id="2_bu1hf"]
 [ext_resource type="Texture2D" uid="uid://bwytahja7yjpy" path="res://art/tileset/Main Tileset/3 Objects/3 Power lines/4.png" id="3_ulrur"]
@@ -10,8 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://8eahw7jmrx2k" path="res://art/tileset/Main Tileset/3 Objects/2 Decoration/26.png" id="8_cqo20"]
 [ext_resource type="PackedScene" uid="uid://n1tvq8pb07uk" path="res://scenes/hud.tscn" id="10_1msdb"]
 [ext_resource type="PackedScene" uid="uid://bb5r8xir4os0g" path="res://scenes/parralax.tscn" id="11_cqo20"]
-[ext_resource type="PackedScene" uid="uid://wi3wuw2ftrxj" path="res://scenes/enemyscreen.tscn" id="12_f4ck5"]
 [ext_resource type="PackedScene" uid="uid://cu351ge424nrk" path="res://scenes/dantevireo.tscn" id="13_docyl"]
+[ext_resource type="PackedScene" uid="uid://dsxexwbvxt3qc" path="res://scenes/REALfinalvillain.tscn" id="13_wnwuj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jtjta"]
 texture = ExtResource("1_wnwuj")
@@ -781,8 +782,12 @@ size = Vector2(122, 122)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mjk3i"]
 size = Vector2(122, 122)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ifxk"]
+size = Vector2(898.5, 69)
+
 [node name="World" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_bu1hf")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -829,8 +834,17 @@ collision_mask = 17
 
 [node name="parralaxnode" parent="." instance=ExtResource("11_cqo20")]
 
-[node name="enemyscreen" parent="." instance=ExtResource("12_f4ck5")]
-visible = false
-position = Vector2(636, 295)
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(445, 366)
+shape = SubResource("RectangleShape2D_2ifxk")
+
+[node name="enemyscreen" parent="." instance=ExtResource("13_wnwuj")]
+position = Vector2(672, 294)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 
 [editable path="HUD"]

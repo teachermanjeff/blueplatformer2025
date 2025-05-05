@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://cu351ge424nrk"]
+[gd_scene load_steps=97 format=3 uid="uid://cu351ge424nrk"]
 
 [ext_resource type="Script" uid="uid://dc2caq7f72stj" path="res://script/dantevireo.gd" id="1_5nv0c"]
 [ext_resource type="Texture2D" uid="uid://bqg1f0ti33ry8" path="res://art/characters/dantevireo/Dead.png" id="1_tsmr2"]
@@ -640,13 +640,15 @@ animations = [{
 radius = 15.0
 height = 60.0
 
+[sub_resource type="AudioStream" id="AudioStream_5nv0c"]
+
 [node name="dantevireo" type="CharacterBody2D"]
 y_sort_enabled = true
-position = Vector2(444, 803)
+position = Vector2(503, 840)
 script = ExtResource("1_5nv0c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.5, 35.5)
+position = Vector2(13, 37)
 shape = SubResource("CapsuleShape2D_5nv0c")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -669,11 +671,14 @@ position = Vector2(0, 1)
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtzone"]
-position = Vector2(-3, 35)
+position = Vector2(13, 36)
 shape = SubResource("CapsuleShape2D_di3h4")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStream_5nv0c")
 
 [connection signal="area_entered" from="hurtzone" to="." method="_on_hurtzone_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
