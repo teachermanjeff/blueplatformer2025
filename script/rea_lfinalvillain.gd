@@ -1,4 +1,5 @@
 extends CharacterBody2D
+var health = 30
 var movespeed = 50
 const gravity = 60
 #@export var anim: AnimatedSprite2D
@@ -9,7 +10,7 @@ var dead = false
 var current_dir = "right"  # direction the character is facing
 var shoot = true
 var knockback = true
-var bullet = preload("res://enemy_bullet.tscn") # Drag & drop Bullet.tscn in the inspector
+var bullet = preload("res://scenes/enemy_bullet.tscn") # Drag & drop Bullet.tscn in the inspector
 @onready var gun_muzzle = $gun_muzzle  # Make sure you added a Marker2D called "GunMuzzle"
 @onready var player = $"../dantevireo"
 func _ready():
@@ -37,17 +38,21 @@ func _physics_process(delta: float) -> void:
 			$Sprite2D.flip_h = true
 			$Sprite2D.play("default")
 			move_and_slide()
-		if shoot == true:
-			var new_bullet = bullet.instantiate()
-			new_bullet.global_position = gun_muzzle.global_position
-			get_parent().add_child(new_bullet)
-			if current_dir == "right":
-				new_bullet.direction = 1
-			else:
-				new_bullet.direction = -1
-			shoot = false
-			$Timer.start()
+			
+			
+		#if shoot == true:
+			#var new_bullet = bullet.instantiate()
+			#new_bullet.global_position = gun_muzzle.global_position
+			#get_parent().add_child(new_bullet)
+			#if current_dir == "right":
+				#new_bullet.direction = 1
+			#else:
+				#new_bullet.direction = -1
+			#shoot = false
+			#$Timer.start()
 		#get_tree().current_scene.add_child(bullet)
+		
+		
 		if is_on_wall():
 			movespeed = -movespeed
 
@@ -68,12 +73,14 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 
 
 func _on_hurt_area_entered(area: Area2D) -> void:
-	$Sprite2D.play("dead")
-	dead = true
-	print("you dead")
-	velocity.x = 0
-	$CollisionShape2D.queue_free()
-	$hurt/CollisionShape2D.queue_free()
+	health -= 1
+	if health == 0 or health < 0:
+		$Sprite2D.play("dead")
+		dead = true
+		print("you dead")
+		velocity.x = 0
+		$CollisionShape2D.queue_free()
+		$hurt/CollisionShape2D.queue_free()
 	#area.queue_free()
 	#queue_free()
 	
@@ -94,10 +101,6 @@ func _on_timer_timeout() -> void:
 		shoot = true
 	pass # Replace with function body.
 
-
-func _on_head_area_entered(area: Area2D) -> void:
-	player.global_position.x -= 100
-	pass # Replace with function body.
 
 
 func _on_attacktimer_timeout() -> void:
