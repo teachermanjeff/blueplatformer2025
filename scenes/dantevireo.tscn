@@ -642,7 +642,7 @@ height = 60.0
 
 [node name="dantevireo" type="CharacterBody2D"]
 y_sort_enabled = true
-position = Vector2(444, 803)
+position = Vector2(503, 840)
 script = ExtResource("1_5nv0c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

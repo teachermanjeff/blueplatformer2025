@@ -2,32 +2,41 @@ extends CharacterBody2D
 var movespeed = 50
 const gravity = 60
 #@export var anim: AnimatedSprite2D
-
+var can_attack = true
 var player_chase = false
 var speed = 25
 var dead = false
 var current_dir = "right"  # direction the character is facing
 var shoot = true
+var knockback = true
 var bullet = preload("res://enemy_bullet.tscn") # Drag & drop Bullet.tscn in the inspector
 @onready var gun_muzzle = $gun_muzzle  # Make sure you added a Marker2D called "GunMuzzle"
 @onready var player = $"../dantevireo"
 func _ready():
+	$Sprite2D.play("idle")
 	
 	pass
 	
 func _physics_process(delta: float) -> void:
 
-	if player_chase == true and velocity.x < 200 or velocity.x < -200:
+	if player_chase == true and dead == false:
 		#velocity.x = movespeed
 		if player.global_position.x > global_position.x:
-			velocity.x += 2
+			print("i am working(24)")
+			velocity.x = velocity.x + 2
 			current_dir = "right"
+			print(velocity)
 			$Sprite2D.flip_h = false
+			$Sprite2D.play("default")
+			move_and_slide()
 		if player.global_position.x < global_position.x:
+			print("i am working(29)")
 			current_dir = "left"
-			velocity.x -= 2
+			velocity.x = velocity.x - 2
+			print(velocity)
 			$Sprite2D.flip_h = true
-			
+			$Sprite2D.play("default")
+			move_and_slide()
 		if shoot == true:
 			var new_bullet = bullet.instantiate()
 			new_bullet.global_position = gun_muzzle.global_position
@@ -39,27 +48,32 @@ func _physics_process(delta: float) -> void:
 			shoot = false
 			$Timer.start()
 		#get_tree().current_scene.add_child(bullet)
-			$Sprite2D.play("default")
-			move_and_slide()
 		if is_on_wall():
 			movespeed = -movespeed
-		
+
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if dead == false: 
-		get_parent().get_node("HUD").health -= 1
-		body.position.x -= 50
+		if can_attack == true:
+			get_parent().get_node("HUD").health -= 1
+			can_attack = false
+			if current_dir == "right":
+				body.position.x += 50
+			else:
+				body.position.x -= 50
+			$knockback.start()
+			knockback = false
+			$attacktimer.start()
 	
 
 
 func _on_hurt_area_entered(area: Area2D) -> void:
-	if dead == false:
-		$Sprite2D.play("dead")
-		dead = true
-		print("you dead")
-		$CollisionShape2D.queue_free()
-		$hurt/CollisionShape2D.queue_free()
-		$hitbox/CollisionShape2DollisionShape2D.queue_free()
+	$Sprite2D.play("dead")
+	dead = true
+	print("you dead")
+	velocity.x = 0
+	$CollisionShape2D.queue_free()
+	$hurt/CollisionShape2D.queue_free()
 	#area.queue_free()
 	#queue_free()
 	
@@ -78,4 +92,39 @@ func _on_detectionzone_body_entered(body: Node2D) -> void:
 func _on_timer_timeout() -> void:
 	if dead == false:
 		shoot = true
+	pass # Replace with function body.
+
+
+func _on_head_area_entered(area: Area2D) -> void:
+	player.global_position.x -= 100
+	pass # Replace with function body.
+
+
+func _on_attacktimer_timeout() -> void:
+	can_attack = true
+	pass # Replace with function body.
+
+
+func _on_knockback_timeout() -> void:
+	knockback = true
+	pass # Replace with function body.
+
+
+func _on_exitdetectionzone_body_exited(body: Node2D) -> void:
+	if dead == false:
+		player_chase = false
+	if player_chase == false :
+		if velocity.x > 0:
+			velocity.x -= 1
+		else:
+			velocity.x +=1
+	$Sprite2D.play("idle")
+	pass # Replace with function body.
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if current_dir == "right":
+		body.position.y += 300
+	else:
+		body.position.y -= 300
 	pass # Replace with function body.

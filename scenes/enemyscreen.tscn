@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://wi3wuw2ftrxj"]
+[gd_scene load_steps=24 format=3 uid="uid://wi3wuw2ftrxj"]
 
 [ext_resource type="Script" uid="uid://kpkbu1qiytoh" path="res://scenes/enemyscreen.gd" id="1_iiinl"]
 [ext_resource type="Texture2D" uid="uid://bxqy3kqjwqjnt" path="res://art/characters/Soldier_1/Walk.png" id="2_2o4fh"]
 [ext_resource type="Texture2D" uid="uid://bhgba2bcmxgo" path="res://art/characters/Soldier_1/Dead.png" id="3_iiinl"]
+[ext_resource type="Texture2D" uid="uid://x2fbdlopyqiy" path="res://art/characters/Soldier_1/Idle.png" id="4_ckluo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e2rbn"]
 atlas = ExtResource("3_iiinl")
@@ -48,6 +49,10 @@ region = Rect2(640, 0, 128, 128)
 atlas = ExtResource("2_2o4fh")
 region = Rect2(768, 0, 128, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fox5n"]
+atlas = ExtResource("4_ckluo")
+region = Rect2(0, 0, 128, 128)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_e2rbn"]
 animations = [{
 "frames": [{
@@ -92,23 +97,37 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fox5n")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jwx65"]
-size = Vector2(31, 46)
+size = Vector2(31, 41)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2o4fh"]
-size = Vector2(34, 47)
+size = Vector2(34, 41)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_305g5"]
-size = Vector2(31, 46.125)
+size = Vector2(31, 40)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iiinl"]
 radius = 178.07
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ckluo"]
+radius = 330.297
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ckluo"]
+
 [node name="enemyscreen" type="CharacterBody2D"]
+position = Vector2(2, -8)
 collision_layer = 8
-collision_mask = 7
+collision_mask = 23
 script = ExtResource("1_iiinl")
 
 [node name="gun_muzzle" type="Marker2D" parent="."]
@@ -117,18 +136,18 @@ script = ExtResource("1_iiinl")
 position = Vector2(0, -20)
 scale = Vector2(0.890625, 0.6875)
 sprite_frames = SubResource("SpriteFrames_e2rbn")
-animation = &"dead"
+animation = &"idle"
 speed_scale = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0)
+position = Vector2(0.5, 2.5)
 shape = SubResource("RectangleShape2D_jwx65")
 
 [node name="hitbox" type="Area2D" parent="."]
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(1, -0.5)
+position = Vector2(1, 2.5)
 shape = SubResource("RectangleShape2D_2o4fh")
 
 [node name="hurt" type="Area2D" parent="."]
@@ -136,7 +155,7 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurt"]
-position = Vector2(0.5, -0.0625)
+position = Vector2(0.5, 3)
 shape = SubResource("RectangleShape2D_305g5")
 
 [node name="detectionzone" type="Area2D" parent="."]
@@ -147,11 +166,34 @@ position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_iiinl")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
 one_shot = true
 
 [node name="enemysound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="attacktimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="knockback" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="exitdetectionzone" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exitdetectionzone"]
+position = Vector2(-4, 1)
+shape = SubResource("CircleShape2D_ckluo")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_ckluo")
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="area_entered" from="hurt" to="." method="_on_hurt_area_entered"]
 [connection signal="body_entered" from="detectionzone" to="." method="_on_detectionzone_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="attacktimer" to="." method="_on_attacktimer_timeout"]
+[connection signal="timeout" from="knockback" to="." method="_on_knockback_timeout"]
+[connection signal="body_exited" from="exitdetectionzone" to="." method="_on_exitdetectionzone_body_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
