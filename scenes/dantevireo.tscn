@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://cu351ge424nrk"]
+[gd_scene load_steps=97 format=3 uid="uid://cu351ge424nrk"]
 
 [ext_resource type="Script" uid="uid://dc2caq7f72stj" path="res://script/dantevireo.gd" id="1_5nv0c"]
 [ext_resource type="Texture2D" uid="uid://bqg1f0ti33ry8" path="res://art/characters/dantevireo/Dead.png" id="1_tsmr2"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://cdnnayua41ltw" path="res://art/characters/dantevireo/Run.png" id="8_usg0t"]
 [ext_resource type="Texture2D" uid="uid://cbpwn3mm7r4mw" path="res://art/characters/dantevireo/Shot.png" id="9_kdkle"]
 [ext_resource type="Texture2D" uid="uid://b7322mlth2evu" path="res://art/characters/dantevireo/Walk.png" id="10_ououa"]
-[ext_resource type="AudioStream" uid="uid://chmxra3aeadh4" path="res://sound/mixkit-player-jumping-in-a-video-game-2043.wav" id="12_di3h4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5nv0c"]
 radius = 13.5
@@ -679,7 +678,6 @@ shape = SubResource("CapsuleShape2D_di3h4")
 wait_time = 0.5
 
 [node name="jumping" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("12_di3h4")
 
 [node name="shoot" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStream_5nv0c")
