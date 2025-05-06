@@ -82,13 +82,13 @@ func play_anim(movement):
 		anim.play("reload")
 	elif !is_on_floor():
 		anim.play("jump")
+		$jumping.play()
 	elif Input.is_action_pressed("shift") and movement == 1:  # Ensure running only if moving
 		anim.play("run")
 	elif movement == 1:
 		anim.play("walk")
 	else:
 		anim.play("idle1")
-
 
 func shoot():
 	if can_shoot == true:
@@ -100,9 +100,9 @@ func shoot():
 
 		# SHOOT
 		var bullet = BulletScene.instantiate()
+		$shoot.play()
 		bullet.global_position = gun_muzzle.global_position
 		$AnimatedSprite2D.play("shot")
-
 
 		if current_dir == "right":
 			bullet.direction = 1
@@ -117,7 +117,6 @@ func shoot():
 		# Start reload if out of ammo
 		if get_parent().get_node("HUD").ammo == 0:
 			start_reload()
-
 
 func start_reload():
 	reloading = true
@@ -149,6 +148,7 @@ func update_ammo_label():
 func _on_hurtzone_area_entered(area: Area2D) -> void:
 	print("i am shot")
 	get_parent().get_node("HUD").health -= 1
+	$hurt.play()
 	knockback = true
 	pass # Replace with function body.
 

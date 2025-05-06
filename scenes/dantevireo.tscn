@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://cu351ge424nrk"]
+[gd_scene load_steps=99 format=3 uid="uid://cu351ge424nrk"]
 
 [ext_resource type="Script" uid="uid://dc2caq7f72stj" path="res://script/dantevireo.gd" id="1_5nv0c"]
 [ext_resource type="Texture2D" uid="uid://bqg1f0ti33ry8" path="res://art/characters/dantevireo/Dead.png" id="1_tsmr2"]
@@ -11,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://cdnnayua41ltw" path="res://art/characters/dantevireo/Run.png" id="8_usg0t"]
 [ext_resource type="Texture2D" uid="uid://cbpwn3mm7r4mw" path="res://art/characters/dantevireo/Shot.png" id="9_kdkle"]
 [ext_resource type="Texture2D" uid="uid://b7322mlth2evu" path="res://art/characters/dantevireo/Walk.png" id="10_ououa"]
+[ext_resource type="AudioStream" uid="uid://chmxra3aeadh4" path="res://sound/mixkit-player-jumping-in-a-video-game-2043.wav" id="12_qcfih"]
+[ext_resource type="AudioStream" uid="uid://duskkr1g0uxta" path="res://sound/shooting.mp3" id="13_uiipw"]
+[ext_resource type="AudioStream" uid="uid://c1m4keu72ghb6" path="res://sound/mixkit-player-losing-or-failing-2042.wav" id="14_uiipw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5nv0c"]
 radius = 13.5
@@ -640,8 +643,6 @@ animations = [{
 radius = 15.0
 height = 60.0
 
-[sub_resource type="AudioStream" id="AudioStream_5nv0c"]
-
 [node name="dantevireo" type="CharacterBody2D"]
 y_sort_enabled = true
 position = Vector2(503, 840)
@@ -664,7 +665,7 @@ animation = &"shot"
 speed_scale = 3.0
 
 [node name="GunMuzzle" type="Marker2D" parent="."]
-position = Vector2(38, 33)
+position = Vector2(25, 33)
 
 [node name="hurtzone" type="Area2D" parent="."]
 position = Vector2(0, 1)
@@ -678,9 +679,14 @@ shape = SubResource("CapsuleShape2D_di3h4")
 wait_time = 0.5
 
 [node name="jumping" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_qcfih")
+volume_db = 24.0
 
 [node name="shoot" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource("AudioStream_5nv0c")
+stream = ExtResource("13_uiipw")
+
+[node name="hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_uiipw")
 
 [connection signal="area_entered" from="hurtzone" to="." method="_on_hurtzone_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
