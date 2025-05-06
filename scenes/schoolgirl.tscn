@@ -1,0 +1,90 @@
+[gd_scene load_steps=14 format=3 uid="uid://dfhjfe5e2rkfd"]
+
+[ext_resource type="Script" uid="uid://uecg6u0aoq28" path="res://script/goal.gd" id="1_gj8yi"]
+[ext_resource type="Texture2D" uid="uid://cbudjujvrosrm" path="res://art/characters/Girl_1/Idle.png" id="1_sijf7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gj8yi"]
+atlas = ExtResource("1_sijf7")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tu8fk"]
+atlas = ExtResource("1_sijf7")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ef2lp"]
+atlas = ExtResource("1_sijf7")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i007g"]
+atlas = ExtResource("1_sijf7")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0jtj"]
+atlas = ExtResource("1_sijf7")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0oti7"]
+atlas = ExtResource("1_sijf7")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0qg7"]
+atlas = ExtResource("1_sijf7")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5w56p"]
+atlas = ExtResource("1_sijf7")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpxsl"]
+atlas = ExtResource("1_sijf7")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pk6ur"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gj8yi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tu8fk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ef2lp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i007g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0jtj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0oti7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0qg7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5w56p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpxsl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6cv86"]
+size = Vector2(27, 74)
+
+[node name="Schoolgirl" type="Area2D"]
+script = ExtResource("1_gj8yi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pk6ur")
+frame_progress = 0.0199996
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 27)
+shape = SubResource("RectangleShape2D_6cv86")
