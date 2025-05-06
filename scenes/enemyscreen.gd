@@ -74,10 +74,9 @@ func _on_hurt_area_entered(area: Area2D) -> void:
 	velocity.x = 0
 	$CollisionShape2D.queue_free()
 	$hurt/CollisionShape2D.queue_free()
+	$dead.play()
 	#area.queue_free()
 	#queue_free()
-	
-
 
 func _on_detectionzone_body_entered(body: Node2D) -> void:
 	print("entered")
@@ -123,10 +122,11 @@ func _on_exitdetectionzone_body_exited(body: Node2D) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if current_dir == "right":
-		body.position.y += 50
-		body.position.x += 50
-	else:
-		body.position.y -= 50
-		body.position.x -= 50
+	if knockback == true:
+		if current_dir == "right":
+			body.position.y += 50
+			body.position.x += 50
+		else:
+			body.position.y -= 50
+			body.position.x -= 50
 	pass # Replace with function body.

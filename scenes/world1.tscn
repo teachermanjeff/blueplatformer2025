@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://d2otgecp24gx7"]
+[gd_scene load_steps=30 format=3 uid="uid://d2otgecp24gx7"]
 
 [ext_resource type="Script" uid="uid://fgx4g214v2q6" path="res://scenes/world_1.gd" id="1_bu1hf"]
 [ext_resource type="Texture2D" uid="uid://dbmxg6pnx7ydq" path="res://art/tileset/Main Tileset/1 Tiles/Main Tileset Ground.png" id="1_wnwuj"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bb5r8xir4os0g" path="res://scenes/parralax.tscn" id="11_cqo20"]
 [ext_resource type="PackedScene" uid="uid://cu351ge424nrk" path="res://scenes/dantevireo.tscn" id="13_docyl"]
 [ext_resource type="PackedScene" uid="uid://dsxexwbvxt3qc" path="res://scenes/REALfinalvillain.tscn" id="13_wnwuj"]
+[ext_resource type="AudioStream" uid="uid://0kdv3gsfbhuj" path="res://sound/game-level-music.mp3" id="14_bu1hf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jtjta"]
 texture = ExtResource("1_wnwuj")
@@ -844,6 +845,10 @@ shape = SubResource("RectangleShape2D_2ifxk")
 
 [node name="enemyscreen" parent="." instance=ExtResource("13_wnwuj")]
 position = Vector2(672, 294)
+
+[node name="game" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_bu1hf")
+autoplay = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 
