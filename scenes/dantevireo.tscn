@@ -644,6 +644,7 @@ radius = 15.0
 height = 60.0
 
 [node name="dantevireo" type="CharacterBody2D"]
+modulate = Color(1, 1, 0, 1)
 y_sort_enabled = true
 position = Vector2(503, 840)
 script = ExtResource("1_5nv0c")
