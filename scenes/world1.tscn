@@ -804,27 +804,27 @@ layer_2/tile_data = PackedInt32Array(1245191, 7, 2, 1245192, 65543, 2, 1245193, 
 [node name="HUD" parent="." instance=ExtResource("10_1msdb")]
 
 [node name="moveright" parent="HUD" index="2"]
-position = Vector2(330, 680)
+position = Vector2(330, 664)
 scale = Vector2(0.691904, 0.691904)
 shape = SubResource("RectangleShape2D_f4ck5")
 
 [node name="moveleft" parent="HUD" index="3"]
-position = Vector2(165, 680)
+position = Vector2(165, 664)
 scale = Vector2(0.691904, 0.691904)
 shape = SubResource("RectangleShape2D_wnwuj")
 
 [node name="space" parent="HUD" index="4"]
-position = Vector2(243, 680)
+position = Vector2(243, 664)
 scale = Vector2(0.691904, 0.691904)
 shape = SubResource("RectangleShape2D_bu1hf")
 
 [node name="moveleft2" parent="HUD" index="5"]
-position = Vector2(417, 680)
+position = Vector2(417, 664)
 scale = Vector2(0.691904, 0.691904)
 shape = SubResource("RectangleShape2D_ulrur")
 
 [node name="moveleft3" parent="HUD" index="6"]
-position = Vector2(70, 680)
+position = Vector2(70, 664)
 scale = Vector2(0.691904, 0.691904)
 shape = SubResource("RectangleShape2D_mjk3i")
 
