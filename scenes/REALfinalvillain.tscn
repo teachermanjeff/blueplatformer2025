@@ -197,6 +197,7 @@ radius = 678.047
 size = Vector2(34, 2)
 
 [node name="enemyscreen" type="CharacterBody2D"]
+modulate = Color(1, 1, 0, 1)
 position = Vector2(2, -8)
 collision_layer = 8
 collision_mask = 23
