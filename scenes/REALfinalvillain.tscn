@@ -197,7 +197,6 @@ radius = 678.047
 size = Vector2(34, 2)
 
 [node name="enemyscreen" type="CharacterBody2D"]
-modulate = Color(1, 1, 0, 1)
 position = Vector2(2, -8)
 collision_layer = 8
 collision_mask = 23
@@ -209,7 +208,7 @@ script = ExtResource("1_x650l")
 position = Vector2(0, -20)
 scale = Vector2(0.890625, 0.6875)
 sprite_frames = SubResource("SpriteFrames_e2rbn")
-animation = &"idle"
+frame_progress = 0.556238
 speed_scale = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
