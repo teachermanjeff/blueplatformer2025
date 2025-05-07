@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 		#velocity.x = movespeed
 		if player.global_position.x > global_position.x:
 			print("i am working(24)")
-			velocity.x = velocity.x + 2
+			velocity.x = 100
 			current_dir = "right"
 			print(velocity)
 			$Sprite2D.flip_h = false
@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 		if player.global_position.x < global_position.x:
 			print("i am working(29)")
 			current_dir = "left"
-			velocity.x = velocity.x - 2
+			velocity.x = -100
 			print(velocity)
 			$Sprite2D.flip_h = true
 			$Sprite2D.play("default")
@@ -122,7 +122,7 @@ func _on_exitdetectionzone_body_exited(body: Node2D) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if knockback == true:
+	if knockback == true and dead == false:
 		if current_dir == "right":
 			body.position.y += 50
 			body.position.x += 50

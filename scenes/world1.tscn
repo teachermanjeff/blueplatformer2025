@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://d2otgecp24gx7"]
+[gd_scene load_steps=73 format=3 uid="uid://d2otgecp24gx7"]
 
 [ext_resource type="Script" uid="uid://fgx4g214v2q6" path="res://scenes/world_1.gd" id="1_bu1hf"]
 [ext_resource type="Texture2D" uid="uid://dbmxg6pnx7ydq" path="res://art/tileset/Main Tileset/1 Tiles/Main Tileset Ground.png" id="1_wnwuj"]
@@ -21,13 +21,10 @@
 [ext_resource type="PackedScene" uid="uid://n1tvq8pb07uk" path="res://scenes/hud.tscn" id="10_1msdb"]
 [ext_resource type="Texture2D" uid="uid://cnqu4hvdabewn" path="res://art/tileset/Main Tileset/3 Objects/2 Decoration/27.png" id="10_ulrur"]
 [ext_resource type="PackedScene" uid="uid://bb5r8xir4os0g" path="res://scenes/parralax.tscn" id="11_cqo20"]
-[ext_resource type="PackedScene" uid="uid://cu351ge424nrk" path="res://scenes/dantevireo.tscn" id="13_docyl"]
-[ext_resource type="PackedScene" uid="uid://dsxexwbvxt3qc" path="res://scenes/REALfinalvillain.tscn" id="13_wnwuj"]
-[ext_resource type="AudioStream" uid="uid://0kdv3gsfbhuj" path="res://sound/game-level-music.mp3" id="14_bu1hf"]
 [ext_resource type="Texture2D" uid="uid://u0cnhi3e56t7" path="res://art/tileset/Main Tileset/3 Objects/2 Decoration/4.png" id="11_e1jmj"]
 [ext_resource type="Texture2D" uid="uid://dkox2g7oqi578" path="res://art/tileset/Main Tileset/3 Objects/2 Decoration/1.png" id="12_7xpa1"]
-[ext_resource type="PackedScene" uid="uid://wi3wuw2ftrxj" path="res://scenes/enemyscreen.tscn" id="12_f4ck5"]
 [ext_resource type="PackedScene" uid="uid://cu351ge424nrk" path="res://scenes/dantevireo.tscn" id="13_docyl"]
+[ext_resource type="AudioStream" uid="uid://0kdv3gsfbhuj" path="res://sound/game-level-music.mp3" id="14_bu1hf"]
 [ext_resource type="Texture2D" uid="uid://ddcxqppwrmlfd" path="res://art/tileset/Main Tileset/3 Objects/2 Decoration/2.png" id="14_prshq"]
 [ext_resource type="Texture2D" uid="uid://thxxljkshbqj" path="res://art/tileset/Main Tileset/3 Objects/2 Decoration/18.png" id="15_1tf7j"]
 [ext_resource type="Texture2D" uid="uid://540j1jljct5o" path="res://art/tileset/Main Tileset/3 Objects/2 Decoration/17.png" id="16_q0hck"]
@@ -36,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://gbaf4qr10cxh" path="res://art/tileset/Main Tileset/3 Objects/2 Decoration/13.png" id="19_7g318"]
 [ext_resource type="Texture2D" uid="uid://17k3kdye4fek" path="res://art/tileset/Main Tileset/3 Objects/2 Decoration/9.png" id="21_0n6n4"]
 [ext_resource type="Texture2D" uid="uid://bst5b2r1n32sg" path="res://art/Background/War2/Pale/houses3.png" id="22_e1jmj"]
+[ext_resource type="PackedScene" uid="uid://wi3wuw2ftrxj" path="res://scenes/enemyscreen.tscn" id="34_prshq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jtjta"]
 texture = ExtResource("1_wnwuj")
@@ -6495,12 +6493,12 @@ collision_mask = 9
 position = Vector2(445, 366)
 shape = SubResource("RectangleShape2D_2ifxk")
 
-[node name="enemyscreen" parent="." instance=ExtResource("13_wnwuj")]
-position = Vector2(672, 294)
-
 [node name="game" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_bu1hf")
 autoplay = true
+
+[node name="enemyscreen" parent="." instance=ExtResource("34_prshq")]
+position = Vector2(605, 297)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 

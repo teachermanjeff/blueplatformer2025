@@ -31,7 +31,7 @@ func _physics_process(delta: float) -> void:
 		# Move toward the player based on their position
 		if player.global_position.x > global_position.x:
 			print("i am working(24)")
-			velocity.x = velocity.x + 2
+			velocity.x = 150
 			current_dir = "right"
 			print(velocity)
 			$Sprite2D.flip_h = false  # Face right
@@ -41,7 +41,7 @@ func _physics_process(delta: float) -> void:
 		if player.global_position.x < global_position.x:
 			print("i am working(29)")
 			current_dir = "left"
-			velocity.x = velocity.x - 2
+			velocity.x = -150
 			print(velocity)
 			$Sprite2D.flip_h = true  # Face left
 			$Sprite2D.play("default")
