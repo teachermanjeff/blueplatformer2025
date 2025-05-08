@@ -363,7 +363,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"death",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -662,6 +662,8 @@ limit_top = 0
 position = Vector2(22, 12)
 scale = Vector2(0.90625, 0.8125)
 sprite_frames = SubResource("SpriteFrames_h4bv2")
+animation = &"death"
+frame_progress = 0.980778
 animation = &"hurt"
 speed_scale = 3.0
 
@@ -689,5 +691,9 @@ stream = ExtResource("13_uiipw")
 [node name="hurt" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_uiipw")
 
+[node name="dead" type="Timer" parent="."]
+wait_time = 5.0
+
 [connection signal="area_entered" from="hurtzone" to="." method="_on_hurtzone_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="dead" to="." method="_on_dead_timeout"]
