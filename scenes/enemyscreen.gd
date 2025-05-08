@@ -8,7 +8,11 @@ var speed = 25
 var dead = false
 var current_dir = "right"  # direction the character is facing
 var shoot = true
+
 var knockback = false
+
+
+
 var bullet = preload("res://scenes/enemy_bullet.tscn") # Drag & drop Bullet.tscn in the inspector
 @onready var gun_muzzle = $gun_muzzle  # Make sure you added a Marker2D called "GunMuzzle"
 @onready var player = $"../dantevireo"
@@ -32,7 +36,7 @@ func _physics_process(delta: float) -> void:
 		if player.global_position.x < global_position.x:
 			print("i am working(29)")
 			current_dir = "left"
-			velocity.x = -100
+			velocity.x = 100
 			print(velocity)
 			$Sprite2D.flip_h = true
 			$Sprite2D.play("default")
@@ -57,6 +61,12 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 		if can_attack == true:
 			get_parent().get_node("HUD").health -= 1
 			can_attack = false
+
+			if current_dir == "right":
+				body.position.x += 50
+			else:
+				body.position.x -= 50
+
 			$attacktimer.start()
 	
 
@@ -98,8 +108,7 @@ func _on_attacktimer_timeout() -> void:
 	pass # Replace with function body.
 
 
-func _on_knockback_timeout() -> void:
-	knockback = true
+
 	pass # Replace with function body.
 
 
@@ -112,15 +121,4 @@ func _on_exitdetectionzone_body_exited(body: Node2D) -> void:
 		else:
 			velocity.x +=1
 	$Sprite2D.play("idle")
-	pass # Replace with function body.
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if knockback == true and dead == false:
-		if current_dir == "right":
-			body.position.y += 50
-			body.position.x += 50
-		else:
-			body.position.y -= 50
-			body.position.x -= 50
 	pass # Replace with function body.
