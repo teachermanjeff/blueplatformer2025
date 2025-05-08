@@ -8,7 +8,7 @@ var speed = 25
 var dead = false
 var current_dir = "right"  # direction the character is facing
 var shoot = true
-var knockback = true
+var knockback = false
 var bullet = preload("res://scenes/enemy_bullet.tscn") # Drag & drop Bullet.tscn in the inspector
 @onready var gun_muzzle = $gun_muzzle  # Make sure you added a Marker2D called "GunMuzzle"
 @onready var player = $"../dantevireo"
@@ -57,12 +57,6 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 		if can_attack == true:
 			get_parent().get_node("HUD").health -= 1
 			can_attack = false
-			if current_dir == "right":
-				body.position.x += 50
-			else:
-				body.position.x -= 50
-			$knockback.start()
-			knockback = false
 			$attacktimer.start()
 	
 
