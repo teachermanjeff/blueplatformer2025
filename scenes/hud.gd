@@ -13,4 +13,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		$ammo.text = "ammo: " + str(ammo) + "/10"
 	$health.text = "Health: " + str(health)
+	if health <= 0:
+		get_tree().reload_current_scene()
 pass

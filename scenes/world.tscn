@@ -723,9 +723,6 @@ size = Vector2(122, 122)
 
 [node name="World_Sample" type="Node2D"]
 
-[node name="enemyscreen" parent="." instance=ExtResource("12_lakw3")]
-position = Vector2(827, 120)
-
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_71j4m")
 format = 2

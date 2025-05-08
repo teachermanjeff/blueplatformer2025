@@ -70,7 +70,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_xpxsl")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"default",
 "speed": 5.0
 }]
 
@@ -82,12 +82,9 @@ script = ExtResource("1_gj8yi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pk6ur")
-animation = &"idle"
-frame_progress = 0.997377
+frame_progress = 0.0199996
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 27)
 shape = SubResource("RectangleShape2D_6cv86")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]

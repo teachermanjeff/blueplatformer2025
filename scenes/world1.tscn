@@ -35,7 +35,6 @@
 [ext_resource type="Texture2D" uid="uid://bst5b2r1n32sg" path="res://art/Background/War2/Pale/houses3.png" id="22_e1jmj"]
 [ext_resource type="PackedScene" uid="uid://wi3wuw2ftrxj" path="res://scenes/enemyscreen.tscn" id="34_prshq"]
 [ext_resource type="PackedScene" uid="uid://dsxexwbvxt3qc" path="res://scenes/REALfinalvillain.tscn" id="35_1tf7j"]
-[ext_resource type="PackedScene" uid="uid://dfhjfe5e2rkfd" path="res://scenes/schoolgirl.tscn" id="35_1tf7j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jtjta"]
 texture = ExtResource("1_wnwuj")
@@ -6495,16 +6494,10 @@ collision_mask = 9
 position = Vector2(445, 366)
 shape = SubResource("RectangleShape2D_2ifxk")
 
-[node name="enemyscreen" parent="." instance=ExtResource("13_wnwuj")]
-position = Vector2(672, 294)
-
 [node name="game" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_bu1hf")
 autoplay = true
 
-[node name="Schoolgirl" parent="." instance=ExtResource("35_1tf7j")]
-position = Vector2(7102, 2501)
-scale = Vector2(0.680001, 0.680001)
 [node name="enemyscreen" parent="." instance=ExtResource("34_prshq")]
 position = Vector2(1099, 297)
 
