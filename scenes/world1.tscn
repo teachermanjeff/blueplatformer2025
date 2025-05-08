@@ -6504,6 +6504,8 @@ position = Vector2(1099, 297)
 [node name="enemyscreen" parent="enemyscreen" instance=ExtResource("35_1tf7j")]
 position = Vector2(5838, 2224)
 
+[node name="delete me node" type="Node" parent="."]
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 
 [editable path="HUD"]
