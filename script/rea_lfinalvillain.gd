@@ -11,7 +11,7 @@ var speed = 25
 var dead = false
 var current_dir = "right"  # Tracks which way the enemy is facing
 var shoot = true
-var knockback = true
+var knockback = false
 
 # Preload bullet scene for shooting
 var bullet = preload("res://scenes/enemy_bullet.tscn")
@@ -31,7 +31,7 @@ func _physics_process(delta: float) -> void:
 		# Move toward the player based on their position
 		if player.global_position.x > global_position.x:
 			print("i am working(24)")
-			velocity.x = velocity.x + 2
+			velocity.x = 150
 			current_dir = "right"
 			print(velocity)
 			$Sprite2D.flip_h = false  # Face right
@@ -41,20 +41,12 @@ func _physics_process(delta: float) -> void:
 		if player.global_position.x < global_position.x:
 			print("i am working(29)")
 			current_dir = "left"
-			velocity.x = velocity.x - 2
+			velocity.x = -150
 			print(velocity)
 			$Sprite2D.flip_h = true  # Face left
 			$Sprite2D.play("default")
 			move_and_slide()
 
-		# Uncomment below to enable shooting
-		# if shoot == true:
-		#     var new_bullet = bullet.instantiate()
-		#     new_bullet.global_position = gun_muzzle.global_position
-		#     get_parent().add_child(new_bullet)
-		#     new_bullet.direction = 1 if current_dir == "right" else -1
-		#     shoot = false
-		#     $Timer.start()
 
 		# If enemy hits a wall, reverse direction (not used now)
 		if is_on_wall():
@@ -67,15 +59,6 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 		get_parent().get_node("HUD").health -= 1
 		can_attack = false
 
-		# Apply knockback to the player
-		if current_dir == "right":
-			body.position.x += 50
-		else:
-			body.position.x -= 50
-
-		# Start knockback cooldown and attack cooldown
-		$knockback.start()
-		knockback = false
 		$attacktimer.start()
 
 # When the enemy is damaged
@@ -109,9 +92,7 @@ func _on_timer_timeout() -> void:
 func _on_attacktimer_timeout() -> void:
 	can_attack = true
 
-# Timer event: reset knockback ability
-func _on_knockback_timeout() -> void:
-	knockback = true
+
 
 # Player exits the detection zone
 func _on_exitdetectionzone_body_exited(body: Node2D) -> void:
@@ -125,18 +106,3 @@ func _on_exitdetectionzone_body_exited(body: Node2D) -> void:
 		else:
 			velocity.x += 1
 		$Sprite2D.play("idle")
-
-# Handles additional knockback when touching a specific area
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if knockback == true and dead == false:
-		if current_dir == "right":
-			body.position.y += 50
-			body.position.x += 50
-			get_parent().get_node("HUD").health -= 1
-			knockback = false
-		else:
-			body.position.y -= 50
-			body.position.x -= 50
-			get_parent().get_node("HUD").health -= 1
-			knockback = false
-		$knockback.start()

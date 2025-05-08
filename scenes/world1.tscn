@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://d2otgecp24gx7"]
+[gd_scene load_steps=74 format=3 uid="uid://d2otgecp24gx7"]
 
 [ext_resource type="Script" path="res://scenes/world_1.gd" id="1_bu1hf"]
 [ext_resource type="Texture2D" uid="uid://dbmxg6pnx7ydq" path="res://art/tileset/Main Tileset/1 Tiles/Main Tileset Ground.png" id="1_wnwuj"]
@@ -34,6 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://17k3kdye4fek" path="res://art/tileset/Main Tileset/3 Objects/2 Decoration/9.png" id="21_0n6n4"]
 [ext_resource type="Texture2D" uid="uid://bst5b2r1n32sg" path="res://art/Background/War2/Pale/houses3.png" id="22_e1jmj"]
 [ext_resource type="PackedScene" uid="uid://wi3wuw2ftrxj" path="res://scenes/enemyscreen.tscn" id="34_prshq"]
+[ext_resource type="PackedScene" uid="uid://dsxexwbvxt3qc" path="res://scenes/REALfinalvillain.tscn" id="35_1tf7j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jtjta"]
 texture = ExtResource("1_wnwuj")
@@ -6498,7 +6499,10 @@ stream = ExtResource("14_bu1hf")
 autoplay = true
 
 [node name="enemyscreen" parent="." instance=ExtResource("34_prshq")]
-position = Vector2(1131, 297)
+position = Vector2(1099, 297)
+
+[node name="enemyscreen" parent="enemyscreen" instance=ExtResource("35_1tf7j")]
+position = Vector2(5838, 2224)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 

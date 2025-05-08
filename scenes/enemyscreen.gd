@@ -57,12 +57,6 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 		if can_attack == true:
 			get_parent().get_node("HUD").health -= 1
 			can_attack = false
-			if current_dir == "right":
-				body.position.x += 50
-			else:
-				body.position.x -= 50
-
-
 			$attacktimer.start()
 	
 
