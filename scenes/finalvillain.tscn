@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://cpn3vr0wb45wa"]
+[gd_scene load_steps=98 format=3 uid="uid://dhrhfeu4gk6ao"]
 
 [ext_resource type="Script" uid="uid://kpkbu1qiytoh" path="res://scenes/enemyscreen.gd" id="1_68fts"]
 [ext_resource type="Texture2D" uid="uid://b4l8es0grehtp" path="res://art/characters/Gangsters_3/Shot.png" id="1_byd30"]
