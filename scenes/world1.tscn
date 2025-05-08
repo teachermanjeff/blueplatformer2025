@@ -1,6 +1,6 @@
 [gd_scene load_steps=74 format=3 uid="uid://d2otgecp24gx7"]
 
-[ext_resource type="Script" path="res://scenes/world_1.gd" id="1_bu1hf"]
+[ext_resource type="Script" uid="uid://fgx4g214v2q6" path="res://scenes/world_1.gd" id="1_bu1hf"]
 [ext_resource type="Texture2D" uid="uid://dbmxg6pnx7ydq" path="res://art/tileset/Main Tileset/1 Tiles/Main Tileset Ground.png" id="1_wnwuj"]
 [ext_resource type="Texture2D" uid="uid://c82mp5gcrumxy" path="res://art/tileset/Main Tileset/3 Objects/2 Decoration/24.png" id="2_bu1hf"]
 [ext_resource type="Texture2D" uid="uid://dmu67s0ijh4w7" path="res://art/tileset/Main Tileset/3 Objects/2 Decoration/23.png" id="3_2ifxk"]

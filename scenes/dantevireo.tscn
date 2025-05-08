@@ -361,9 +361,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dh1bt")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -383,7 +383,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"hurt",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -689,5 +689,8 @@ stream = ExtResource("13_uiipw")
 [node name="hurt" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_uiipw")
 
+[node name="death" type="Timer" parent="."]
+
 [connection signal="area_entered" from="hurtzone" to="." method="_on_hurtzone_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="death" to="." method="_on_death_timeout"]

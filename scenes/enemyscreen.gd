@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 		if player.global_position.x < global_position.x:
 			print("i am working(29)")
 			current_dir = "left"
-			velocity.x = 100
+			velocity.x = -100
 			print(velocity)
 			$Sprite2D.flip_h = true
 			$Sprite2D.play("default")
@@ -89,7 +89,7 @@ func _on_timer_timeout() -> void:
 
 
 func _on_head_area_entered(area: Area2D) -> void:
-	player.global_position.x -= 100
+
 	pass # Replace with function body.
 
 
