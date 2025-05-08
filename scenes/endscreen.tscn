@@ -7,15 +7,14 @@
 script = ExtResource("1_gcvua")
 
 [node name="Button" type="Button" parent="."]
-offset_left = 153.0
-offset_top = 818.0
-offset_right = 699.0
-offset_bottom = 902.0
-scale = Vector2(0.56419, 0.56419)
+offset_left = -275.0
+offset_top = 672.0
+offset_right = 271.0
+offset_bottom = 756.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(271, 479)
-scale = Vector2(0.53125, 0.622396)
+position = Vector2(-9, 33)
+scale = Vector2(1.04883, 1.04883)
 texture = ExtResource("1_sug1e")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

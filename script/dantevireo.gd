@@ -5,7 +5,7 @@ const GRAVITY = 2200
 const JUMP_SPEED = -600
 const RUN_SPEED = 200  # Speed when running (Shift pressed)
 var death = false
-var knockback = false
+
 var current_dir = "right"  # direction the character is facing
 var BulletScene = preload("res://scenes/bullet.tscn")
 @onready var gun_muzzle = $GunMuzzle  # Make sure you added a Marker2D called "GunMuzzle"
@@ -15,22 +15,23 @@ var shots_left = 9
 const MAX_SHOTS := 10
 const RELOAD_TIME := 2.5
 var reloading := false
-var dead = false
-
+var restart = false
 func _physics_process(delta):
-	if death == true:
+	if restart == true:
 		get_tree().reload_current_scene()
-	# Apply gravity
-	if dead == false:
+	if death == false:
+		# Apply gravity
 		velocity.y += GRAVITY * delta
+
+
 		var movement = 0  # 0 = idle, 1 = moving
 
-	# Prevent movement if reloading
+		# Prevent movement if reloading
 		if reloading:
 			velocity.x = 0
 			movement = 0
 		else:
-		# Handle horizontal movement
+			# Handle horizontal movement
 			if Input.is_action_pressed("move_left"):
 				current_dir = "left"
 				velocity.x = -MOVE_SPEED if !Input.is_action_pressed("shift") else -RUN_SPEED
@@ -46,21 +47,21 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("Jump") and is_on_floor() and !reloading:
 			velocity.y = JUMP_SPEED
 
-	# Handle shooting
+		# Handle shooting
 		if Input.is_action_just_pressed("shoot") and !reloading and is_on_floor():
 				shoot()
 		# Check if the player presses "R" to reload
 		if Input.is_action_just_pressed("reload") and !reloading and shots_left < 10:
 			start_reload()
 
-	# Play animation based on movement, direction, and shift key
+		# Play animation based on movement, direction, and shift key
 		play_anim(movement)
 
 		# Move the character
 		move_and_slide()
 
 func play_anim(movement):
-	if dead == false:
+	if death == false:
 		var anim = $AnimatedSprite2D
 
 		# Flip based on direction
@@ -83,7 +84,7 @@ func play_anim(movement):
 			anim.play("idle1")
 
 func shoot():
-	if dead == false:
+	if death == false:
 		if can_shoot == true:
 			can_shoot = false
 			$Timer.start()
@@ -112,7 +113,7 @@ func shoot():
 				start_reload()
 
 func start_reload():
-	if dead == false:
+	if death == false:
 		reloading = true
 		print("Reloading...")
 
@@ -135,35 +136,30 @@ func start_reload():
 		else:
 			$AnimatedSprite2D.play("walk")
 
-	# Function to update the ammo counter on screen
+# Function to update the ammo counter on screen
 func update_ammo_label():
-	if dead == false:
-		ammo_label.text = "Ammo: " + str(shots_left) + "/" + str(MAX_SHOTS)
+	ammo_label.text = "Ammo: " + str(shots_left) + "/" + str(MAX_SHOTS)
 
 func _on_hurtzone_area_entered(area: Area2D) -> void:
-	if dead == false:
+	if death == false:
 		print("i am shot")
 		get_parent().get_node("HUD").health -= 1
 		$AnimatedSprite2D.play("hurt")
-		if get_parent().get_node("HUD").health == 0:
-			$hurt.play()
-			dead = true
-			$AnimatedSprite2D.play("death")
-			$dead.start()
-		$AnimatedSprite2D.play("walk")
-		pass # Replace with function body.
-
-	  # Check if health is 0 and restart the scene (or handle death)
-		if get_parent().get_node("HUD").health == 0:
-			$AnimatedSprite2D.play("death")  # Reload the scene to restart
-
-
-func _on_timer_timeout() -> void:
-	if dead == false:
-		can_shoot = true
+		  # Check if health is 0 and restart the scene (or handle death)
+	if get_parent().get_node("HUD").health <= 0:
+		$hurtzone/CollisionShape2D.queue_free()
+		$CollisionShape2D.queue_free()
+		death = true
+		$hurt.play()
+		$AnimatedSprite2D.play("death")  # Reload the scene to restart
+		$death.start()
 	pass # Replace with function body.
 
 
-func _on_dead_timeout() -> void:
-	death = true
+func _on_timer_timeout() -> void:
+	can_shoot = true
+	pass # Replace with function body.
+
+func _on_death_timeout() -> void:
+	restart = true
 	pass # Replace with function body.
