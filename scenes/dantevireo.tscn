@@ -689,5 +689,9 @@ stream = ExtResource("13_uiipw")
 [node name="hurt" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_uiipw")
 
+[node name="dead" type="Timer" parent="."]
+wait_time = 5.0
+
 [connection signal="area_entered" from="hurtzone" to="." method="_on_hurtzone_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="dead" to="." method="_on_dead_timeout"]
