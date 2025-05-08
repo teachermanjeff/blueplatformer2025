@@ -9,10 +9,6 @@ var dead = false
 var current_dir = "right"  # direction the character is facing
 var shoot = true
 
-var knockback = false
-
-
-
 var bullet = preload("res://scenes/enemy_bullet.tscn") # Drag & drop Bullet.tscn in the inspector
 @onready var gun_muzzle = $gun_muzzle  # Make sure you added a Marker2D called "GunMuzzle"
 @onready var player = $"../dantevireo"
