@@ -144,10 +144,11 @@ func _on_hurtzone_area_entered(area: Area2D) -> void:
 	if dead == false:
 		print("i am shot")
 		get_parent().get_node("HUD").health -= 1
+		$AnimatedSprite2D.play("hurt")
 		if get_parent().get_node("HUD").health == 0:
 			$hurt.play()
-			$AnimatedSprite2D.play("hurt")
 			dead = true
+			$AnimatedSprite2D.play("death")
 			$dead.start()
 		$AnimatedSprite2D.play("walk")
 		pass # Replace with function body.
