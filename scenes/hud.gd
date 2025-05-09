@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-var health = 3
+var health = 10
 var ammo = 10
 var ammo_max = 10
 var ammo_reload = false

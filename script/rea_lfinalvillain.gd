@@ -92,13 +92,10 @@ func _on_timer_timeout() -> void:
 func _on_attacktimer_timeout() -> void:
 	can_attack = true
 
-
-
 # Player exits the detection zone
 func _on_exitdetectionzone_body_exited(body: Node2D) -> void:
 	if dead == false:
 		player_chase = false
-
 	if player_chase == false:
 		# Gradually stop moving when player is out of range
 		if velocity.x > 0:

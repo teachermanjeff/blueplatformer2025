@@ -191,7 +191,7 @@ size = Vector2(31, 40)
 radius = 178.07
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ckluo"]
-radius = 678.047
+radius = 2425.01
 
 [node name="enemyscreen" type="CharacterBody2D"]
 modulate = Color(1, 1, 0, 1)

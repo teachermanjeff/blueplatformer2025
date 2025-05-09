@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://d2otgecp24gx7"]
+[gd_scene load_steps=76 format=3 uid="uid://d2otgecp24gx7"]
 
 [ext_resource type="Script" uid="uid://fgx4g214v2q6" path="res://scenes/world_1.gd" id="1_bu1hf"]
 [ext_resource type="Texture2D" uid="uid://dbmxg6pnx7ydq" path="res://art/tileset/Main Tileset/1 Tiles/Main Tileset Ground.png" id="1_wnwuj"]
@@ -35,6 +35,8 @@
 [ext_resource type="Texture2D" uid="uid://bst5b2r1n32sg" path="res://art/Background/War2/Pale/houses3.png" id="22_e1jmj"]
 [ext_resource type="PackedScene" uid="uid://wi3wuw2ftrxj" path="res://scenes/enemyscreen.tscn" id="34_prshq"]
 [ext_resource type="PackedScene" uid="uid://dsxexwbvxt3qc" path="res://scenes/REALfinalvillain.tscn" id="35_1tf7j"]
+[ext_resource type="PackedScene" uid="uid://btle3lr0pocuh" path="res://scenes/bumper.tscn" id="35_q0hck"]
+[ext_resource type="PackedScene" uid="uid://dfhjfe5e2rkfd" path="res://scenes/schoolgirl.tscn" id="37_e7cha"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jtjta"]
 texture = ExtResource("1_wnwuj")
@@ -6480,7 +6482,7 @@ scale = Vector2(0.691904, 0.691904)
 shape = SubResource("RectangleShape2D_mjk3i")
 
 [node name="dantevireo" parent="." instance=ExtResource("13_docyl")]
-position = Vector2(32, 257)
+position = Vector2(29, 250)
 collision_mask = 17
 
 [node name="parralaxnode" parent="." instance=ExtResource("11_cqo20")]
@@ -6498,13 +6500,77 @@ shape = SubResource("RectangleShape2D_2ifxk")
 stream = ExtResource("14_bu1hf")
 autoplay = true
 
-[node name="enemyscreen" parent="." instance=ExtResource("34_prshq")]
-position = Vector2(1099, 297)
+[node name="enemyscreen10" parent="." instance=ExtResource("35_1tf7j")]
+position = Vector2(6658, 2517)
 
-[node name="enemyscreen" parent="enemyscreen" instance=ExtResource("35_1tf7j")]
-position = Vector2(5838, 2224)
+[node name="enemyscreen" parent="." instance=ExtResource("34_prshq")]
+position = Vector2(1392, 584)
+
+[node name="Bumper2" parent="enemyscreen" instance=ExtResource("35_q0hck")]
+position = Vector2(-748, -113)
+
+[node name="Bumper" parent="enemyscreen" instance=ExtResource("35_q0hck")]
+position = Vector2(115, -99)
 
 [node name="delete me node" type="Node" parent="."]
+
+[node name="enemyscreen2" parent="." instance=ExtResource("34_prshq")]
+position = Vector2(1119, 297)
+
+[node name="enemyscreen4" parent="." instance=ExtResource("34_prshq")]
+position = Vector2(3227, 824)
+
+[node name="enemyscreen3" parent="." instance=ExtResource("34_prshq")]
+position = Vector2(2583, 296)
+
+[node name="enemyscreen6" parent="." instance=ExtResource("34_prshq")]
+position = Vector2(2669, 823)
+
+[node name="enemyscreen9" parent="." instance=ExtResource("34_prshq")]
+position = Vector2(4176, 902)
+
+[node name="enemyscreen8" parent="." instance=ExtResource("34_prshq")]
+position = Vector2(3936, 903)
+
+[node name="enemyscreen7" parent="." instance=ExtResource("34_prshq")]
+position = Vector2(3738, 904)
+
+[node name="Schoolgirl" parent="." instance=ExtResource("37_e7cha")]
+position = Vector2(7153, 2481)
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 1442.0
+offset_top = 581.0
+offset_right = 1676.0
+offset_bottom = 630.0
+text = "SPACE FOR JUMP
+"
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 886.0
+offset_top = 297.0
+offset_right = 1120.0
+offset_bottom = 372.0
+text = "E TO SHOOT
+
+"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 422.0
+offset_top = 295.0
+offset_right = 656.0
+offset_bottom = 344.0
+text = "SHIFT FOR SPRINT
+
+"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 184.0
+offset_top = 294.0
+offset_right = 418.0
+offset_bottom = 343.0
+text = "USE ARROWS TO MOVE
+"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 
