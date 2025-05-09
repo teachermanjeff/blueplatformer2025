@@ -6476,7 +6476,11 @@ position = Vector2(417, 664)
 scale = Vector2(0.691904, 0.691904)
 shape = SubResource("RectangleShape2D_ulrur")
 
-[node name="moveleft3" parent="HUD" index="6"]
+[node name="shoot" parent="HUD" index="6"]
+position = Vector2(209, 737)
+scale = Vector2(0.0620497, 0.0620497)
+
+[node name="moveleft3" parent="HUD" index="7"]
 position = Vector2(70, 664)
 scale = Vector2(0.691904, 0.691904)
 shape = SubResource("RectangleShape2D_mjk3i")
