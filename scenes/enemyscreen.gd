@@ -38,6 +38,7 @@ func _physics_process(delta: float) -> void:
 			$Sprite2D.play("default")
 			move_and_slide()
 		if shoot == true:
+			$shoot
 			var new_bullet = bullet.instantiate()
 			new_bullet.global_position = gun_muzzle.global_position
 			get_parent().add_child(new_bullet)

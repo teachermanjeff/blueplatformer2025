@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # Enemy properties
-var health = 30
+var health = 20
 var movespeed = 50
 const gravity = 60
 # var anim: AnimatedSprite2D — commented out, likely for future animation control
@@ -31,7 +31,7 @@ func _physics_process(delta: float) -> void:
 		# Move toward the player based on their position
 		if player.global_position.x > global_position.x:
 			print("i am working(24)")
-			velocity.x = 150
+			velocity.x = 120
 			current_dir = "right"
 			print(velocity)
 			$Sprite2D.flip_h = false  # Face right
@@ -41,7 +41,7 @@ func _physics_process(delta: float) -> void:
 		if player.global_position.x < global_position.x:
 			print("i am working(29)")
 			current_dir = "left"
-			velocity.x = -150
+			velocity.x = -120
 			print(velocity)
 			$Sprite2D.flip_h = true  # Face left
 			$Sprite2D.play("default")
@@ -92,13 +92,10 @@ func _on_timer_timeout() -> void:
 func _on_attacktimer_timeout() -> void:
 	can_attack = true
 
-
-
 # Player exits the detection zone
 func _on_exitdetectionzone_body_exited(body: Node2D) -> void:
 	if dead == false:
 		player_chase = false
-
 	if player_chase == false:
 		# Gradually stop moving when player is out of range
 		if velocity.x > 0:
