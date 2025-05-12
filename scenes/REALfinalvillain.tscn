@@ -182,7 +182,7 @@ animations = [{
 size = Vector2(31, 41)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2o4fh"]
-size = Vector2(34, 41)
+size = Vector2(39, 47.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_305g5"]
 size = Vector2(31, 40)
@@ -210,14 +210,14 @@ frame_progress = 0.556238
 speed_scale = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-13, 4)
+position = Vector2(-10, 3)
 shape = SubResource("RectangleShape2D_jwx65")
 
 [node name="hitbox" type="Area2D" parent="."]
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(-10, 3)
+position = Vector2(-8.5, 2.125)
 shape = SubResource("RectangleShape2D_2o4fh")
 
 [node name="hurt" type="Area2D" parent="."]
@@ -242,13 +242,12 @@ one_shot = true
 [node name="enemysound" type="AudioStreamPlayer2D" parent="."]
 
 [node name="attacktimer" type="Timer" parent="."]
-wait_time = 1.5
 
 [node name="exitdetectionzone" type="Area2D" parent="."]
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="exitdetectionzone"]
-position = Vector2(-4, 1)
+position = Vector2(-1, -1)
 shape = SubResource("CircleShape2D_ckluo")
 
 [node name="hurt2" type="AudioStreamPlayer2D" parent="."]
