@@ -16,8 +16,8 @@
 [ext_resource type="AudioStream" uid="uid://c1m4keu72ghb6" path="res://sound/mixkit-player-losing-or-failing-2042.wav" id="14_uiipw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5nv0c"]
-radius = 13.5
-height = 57.0
+radius = 11.0
+height = 62.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kqknl"]
 atlas = ExtResource("1_tsmr2")
@@ -363,7 +363,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"death",
-"speed": 2.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -640,8 +640,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_di3h4"]
-radius = 15.0
-height = 60.0
+radius = 12.0
+height = 66.0
 
 [node name="dantevireo" type="CharacterBody2D"]
 modulate = Color(1, 1, 0, 1)
@@ -650,7 +650,7 @@ position = Vector2(503, 840)
 script = ExtResource("1_5nv0c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(13, 37)
+position = Vector2(15, 36)
 shape = SubResource("CapsuleShape2D_5nv0c")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -659,21 +659,21 @@ limit_left = 0
 limit_top = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(22, 12)
+position = Vector2(19, 12)
 scale = Vector2(0.90625, 0.8125)
 sprite_frames = SubResource("SpriteFrames_h4bv2")
-animation = &"hurt"
+animation = &"run"
 speed_scale = 3.0
 
 [node name="GunMuzzle" type="Marker2D" parent="."]
-position = Vector2(25, 33)
+position = Vector2(27, 34)
 
 [node name="hurtzone" type="Area2D" parent="."]
 position = Vector2(0, 1)
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtzone"]
-position = Vector2(13, 36)
+position = Vector2(15, 35)
 shape = SubResource("CapsuleShape2D_di3h4")
 
 [node name="Timer" type="Timer" parent="."]
@@ -690,6 +690,7 @@ stream = ExtResource("13_uiipw")
 stream = ExtResource("14_uiipw")
 
 [node name="death" type="Timer" parent="."]
+wait_time = 3.0
 
 [connection signal="area_entered" from="hurtzone" to="." method="_on_hurtzone_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

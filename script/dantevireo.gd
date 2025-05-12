@@ -17,13 +17,16 @@ const RELOAD_TIME := 2.5
 var reloading := false
 var restart = false
 func _physics_process(delta):
-	if restart == true:
-		get_tree().reload_current_scene()
+	if death == false:
+		if get_parent().get_node("HUD").health <= 0:
+			death = true
+			$hurt.play()
+			$AnimatedSprite2D.play("death")  # Reload the scene to restart
+			$death.start()
+
 	if death == false:
 		# Apply gravity
 		velocity.y += GRAVITY * delta
-
-
 		var movement = 0  # 0 = idle, 1 = moving
 
 		# Prevent movement if reloading
@@ -146,13 +149,13 @@ func _on_hurtzone_area_entered(area: Area2D) -> void:
 		get_parent().get_node("HUD").health -= 1
 		$AnimatedSprite2D.play("hurt")
 		  # Check if health is 0 and restart the scene (or handle death)
-	if get_parent().get_node("HUD").health <= 0:
-		$hurtzone/CollisionShape2D.queue_free()
-		$CollisionShape2D.queue_free()
-		death = true
-		$hurt.play()
-		$AnimatedSprite2D.play("death")  # Reload the scene to restart
-		$death.start()
+	#if get_parent().get_node("HUD").health == 0 or get_parent().get_node("HUD").health < 0:
+		#$hurtzone/CollisionShape2D.queue_free()
+		#$CollisionShape2D.queue_free()
+		#death = true
+		#$hurt.play()
+		#$AnimatedSprite2D.play("death")  # Reload the scene to restart
+		#$death.start()
 	pass # Replace with function body.
 
 
@@ -161,5 +164,5 @@ func _on_timer_timeout() -> void:
 	pass # Replace with function body.
 
 func _on_death_timeout() -> void:
-	restart = true
+	get_tree().reload_current_scene()
 	pass # Replace with function body.

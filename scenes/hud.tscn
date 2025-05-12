@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://n1tvq8pb07uk"]
+[gd_scene load_steps=11 format=3 uid="uid://n1tvq8pb07uk"]
 
 [ext_resource type="Script" uid="uid://ccw7pcgcbajiq" path="res://scenes/hud.gd" id="1_ahhtf"]
 [ext_resource type="FontFile" uid="uid://b4drnp76yyyc2" path="res://ARCADECLASSIC.TTF" id="2_oo0fn"]
@@ -7,9 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://cxrbqhtgx5vx3" path="res://art/spaceicon.svg" id="5_5pdws"]
 [ext_resource type="Texture2D" uid="uid://52rn7kr57rmr" path="res://art/keyboard_arrow_right.png" id="6_5pdws"]
 [ext_resource type="Texture2D" uid="uid://hvqjeglxu5pn" path="res://art/keyboard_arrow_left.png" id="6_047uy"]
+[ext_resource type="Texture2D" uid="uid://col770i0mc1vc" path="res://art/[CITYPNG.COM]Bullseye Shooting Target White Icon FREE PNG - 2000x2000.png" id="7_hd3ao"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hd3ao"]
 size = Vector2(122, 122)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0i1j5"]
+size = Vector2(2000, 2000)
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_ahhtf")
@@ -60,6 +64,13 @@ scale = Vector2(0.389414, 0.389414)
 texture_normal = ExtResource("6_5pdws")
 shape = SubResource("RectangleShape2D_hd3ao")
 action = "shift"
+
+[node name="shoot" type="TouchScreenButton" parent="."]
+position = Vector2(406, 824)
+scale = Vector2(0.0220491, 0.0220491)
+texture_normal = ExtResource("7_hd3ao")
+shape = SubResource("RectangleShape2D_0i1j5")
+action = "shoot"
 
 [node name="moveleft3" type="TouchScreenButton" parent="."]
 position = Vector2(315, 882)

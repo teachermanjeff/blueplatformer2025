@@ -75,16 +75,21 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6cv86"]
-size = Vector2(27, 74)
+size = Vector2(27, 48)
 
 [node name="Schoolgirl" type="Area2D"]
+position = Vector2(-1, 1)
 script = ExtResource("1_gj8yi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-33, 19)
+scale = Vector2(0.765625, 0.6875)
 sprite_frames = SubResource("SpriteFrames_pk6ur")
 frame_progress = 0.0199996
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 27)
+position = Vector2(-33, 38)
 shape = SubResource("RectangleShape2D_6cv86")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
