@@ -6434,7 +6434,7 @@ size = Vector2(898.5, 69)
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
-position = Vector2(-1, -1)
+position = Vector2(1, -5)
 script = ExtResource("1_bu1hf")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -6487,7 +6487,7 @@ scale = Vector2(0.691904, 0.691904)
 shape = SubResource("RectangleShape2D_mjk3i")
 
 [node name="dantevireo" parent="." instance=ExtResource("13_docyl")]
-position = Vector2(6305, 2473)
+position = Vector2(79, 252)
 collision_mask = 17
 
 [node name="parralaxnode" parent="." instance=ExtResource("11_cqo20")]

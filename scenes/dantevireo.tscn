@@ -16,8 +16,8 @@
 [ext_resource type="AudioStream" uid="uid://c1m4keu72ghb6" path="res://sound/mixkit-player-losing-or-failing-2042.wav" id="14_uiipw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5nv0c"]
-radius = 13.5
-height = 57.0
+radius = 11.0
+height = 62.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kqknl"]
 atlas = ExtResource("1_tsmr2")
@@ -640,8 +640,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_di3h4"]
-radius = 15.0
-height = 60.0
+radius = 12.0
+height = 66.0
 
 [node name="dantevireo" type="CharacterBody2D"]
 modulate = Color(1, 1, 0, 1)
@@ -650,7 +650,7 @@ position = Vector2(503, 840)
 script = ExtResource("1_5nv0c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, 36)
+position = Vector2(15, 36)
 shape = SubResource("CapsuleShape2D_5nv0c")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -662,18 +662,18 @@ limit_top = 0
 position = Vector2(19, 12)
 scale = Vector2(0.90625, 0.8125)
 sprite_frames = SubResource("SpriteFrames_h4bv2")
-animation = &"death"
+animation = &"run"
 speed_scale = 3.0
 
 [node name="GunMuzzle" type="Marker2D" parent="."]
-position = Vector2(25, 33)
+position = Vector2(27, 34)
 
 [node name="hurtzone" type="Area2D" parent="."]
 position = Vector2(0, 1)
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtzone"]
-position = Vector2(-3, 35)
+position = Vector2(15, 35)
 shape = SubResource("CapsuleShape2D_di3h4")
 
 [node name="Timer" type="Timer" parent="."]
